@@ -318,7 +318,7 @@ api-scrapping/
 
 - Never commit `.env` file to version control
 - Rotate proxy credentials regularly
-- Use HTTPS in production (Ngrok provides this)
+- Use HTTPS in production
 - Implement rate limiting per IP in production
 - Monitor for unusual patterns
 
