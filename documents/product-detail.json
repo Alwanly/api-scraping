@@ -1,0 +1,1843 @@
+{
+    "id": "5836562085",
+    "channelServiceType": "STOREFARM",
+    "channelProductType": "SINGLE",
+    "channelProductSupplyType": "OWNER",
+    "channelProductStatusType": "NORMAL",
+    "channelProductDisplayStatusType": "ON",
+    "category": {
+        "categoryId": "50021759",
+        "categoryName": "베스트",
+        "category1Id": "50000000",
+        "category2Id": "50000169",
+        "category3Id": "50021639",
+        "category4Id": "50021759",
+        "category1Name": "패션의류",
+        "category2Name": "남성의류",
+        "category3Name": "아우터",
+        "category4Name": "베스트",
+        "wholeCategoryId": "50000000>50000169>50021639>50021759",
+        "wholeCategoryName": "패션의류>남성의류>아우터>베스트",
+        "categoryLevel": 4,
+        "lastLevel": true,
+        "sortOrder": 6,
+        "validCategory": true,
+        "receiptIssue": true,
+        "exceptionalCategoryTypes": [
+            "MANUFACTURE_DEFINE_NO",
+            "FREE_RETURN_INSURANCE",
+            "GROUP_PRODUCT_MAX",
+            "SAFE_CRITERION"
+        ],
+        "pointAccumulationYn": false
+    },
+    "name": "남성 경량 패딩조끼 겨울 남자 웰론 브이넥 누빔조끼 베스트 (AB23V006M)",
+    "productUrl": "https://smartstore.naver.com/main/products/5836562085",
+    "mobileProductUrl": "https://m.smartstore.naver.com/main/products/5836562085",
+    "channel": {
+        "accountNo": 500025734,
+        "channelNo": "500025734",
+        "channelUid": "2sWDvRpMTEgomcFRCcAED",
+        "channelName": "이지바이",
+        "representName": "(주)이지바이",
+        "channelSiteUrl": "ezbuy",
+        "channelSiteFullUrl": "https://smartstore.naver.com/ezbuy",
+        "channelSiteMobileUrl": "https://m.smartstore.naver.com/ezbuy",
+        "accountId": "ezbuy",
+        "naverPaySellerNo": "500025734",
+        "sellerExternalStatusType": "NORMAL",
+        "logoWidth": 1300,
+        "logoHeight": 1300,
+        "logoUrl": "http://shop1.phinf.naver.net/20230324_164/1679644644130ycoJY_JPEG/80780478956746803_314171936.jpg",
+        "channelTypeCode": "STOREFARM"
+    },
+    "storeKeepExclusiveProduct": false,
+    "epInfo": {
+        "matchingModelId": 56631225571,
+        "naverShoppingRegistration": true,
+        "naverShoppingExposure": true,
+        "enuriRegistration": false,
+        "danawaRegistration": false,
+        "syncNvMid": 83381061499
+    },
+    "best": false,
+    "orderRequestUsable": false,
+    "channelProductAttributes": [],
+    "productNo": "5809950681",
+    "salePrice": 29900,
+    "dispSalePrice": 29900,
+    "stockQuantity": 491,
+    "saleType": "NEW",
+    "excludeAdminDiscount": false,
+    "payExposure": true,
+    "productStatusType": "SALE",
+    "statusType": "SALE",
+    "authenticationType": "NORMAL",
+    "productImages": [
+        {
+            "order": 1,
+            "url": "https://shop-phinf.pstatic.net/20241119_174/1731990127392vKrIy_JPEG/33948534364589175_1338253251.jpg",
+            "width": 600,
+            "height": 600,
+            "imageType": "REPRESENTATIVE"
+        },
+        {
+            "order": 1,
+            "url": "https://shop-phinf.pstatic.net/20241115_166/1731633349568qRVwh_JPEG/3025624370930785_258296633.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 2,
+            "url": "https://shop-phinf.pstatic.net/20241115_119/1731633349723fiJpY_JPEG/3025624529403951_1521630549.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 3,
+            "url": "https://shop-phinf.pstatic.net/20241115_190/1731633349891Bg7Pk_JPEG/3025624696476132_3454223.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 4,
+            "url": "https://shop-phinf.pstatic.net/20241115_207/1731633350034WTUL8_JPEG/3025624848782062_486994869.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 5,
+            "url": "https://shop-phinf.pstatic.net/20241115_197/1731633350287cjEBy_JPEG/3025625102007069_350019533.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        }
+    ],
+    "naverShoppingSearchInfo": {
+        "manufacturerName": "이지바이",
+        "brandName": "엑스트라스포티",
+        "modelName": "이지바이 프라우드 남성 V넥 경량 패딩 조끼 AB23V006M"
+    },
+    "itselfProductionProductYn": false,
+    "afterServiceInfo": {
+        "afterServiceTelephoneNumber": "********",
+        "afterServiceGuideContent": "********"
+    },
+    "originAreaInfo": {
+        "originAreaType": "IMPORT",
+        "content": "미얀마산((주)이지바이)",
+        "originAreaCode": "0200011",
+        "wholeOriginAreaName": "수입산:아시아>미얀마",
+        "importer": "(주)이지바이",
+        "plural": false
+    },
+    "sellerCodeInfo": {
+        "sellerManagementCode": "NO_3567"
+    },
+    "seoInfo": {
+        "sellerTags": [
+            {
+                "code": "7708",
+                "text": "패딩베스트"
+            },
+            {
+                "code": "424125",
+                "text": "이너조끼"
+            },
+            {
+                "code": "363945",
+                "text": "겨울조끼"
+            },
+            {
+                "code": "652320",
+                "text": "경량조끼"
+            },
+            {
+                "code": "63760",
+                "text": "발열조끼"
+            },
+            {
+                "code": "41234",
+                "text": "등산복조끼"
+            },
+            {
+                "code": "413386",
+                "text": "겨울이너"
+            },
+            {
+                "code": "447581",
+                "text": "코트이너"
+            },
+            {
+                "code": "468681",
+                "text": "경량패딩조끼"
+            },
+            {
+                "code": "102858",
+                "text": "털조끼"
+            }
+        ]
+    },
+    "optionUsable": true,
+    "options": [
+        {
+            "id": 8333419063,
+            "optionType": "COMBINATION",
+            "groupName": "색상"
+        },
+        {
+            "id": 8333419064,
+            "optionType": "COMBINATION",
+            "groupName": "사이즈"
+        }
+    ],
+    "optionCombinations": [
+        {
+            "id": 34568871825,
+            "optionName1": "그레이",
+            "optionName2": "095",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 0,
+            "registerDate": "2023-09-07T09:07:55.457+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871826,
+            "optionName1": "그레이",
+            "optionName2": "100",
+            "stockQuantity": 27,
+            "price": 0,
+            "regOrder": 1,
+            "registerDate": "2023-09-07T09:07:55.458+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589179,
+            "optionName1": "그레이",
+            "optionName2": "105",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 2,
+            "registerDate": "2024-08-26T04:35:56.297+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589181,
+            "optionName1": "그레이",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 3,
+            "registerDate": "2024-08-26T04:35:56.298+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589183,
+            "optionName1": "그레이",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 4,
+            "registerDate": "2024-08-26T04:35:56.298+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871830,
+            "optionName1": "네이비",
+            "optionName2": "095",
+            "stockQuantity": 31,
+            "price": 0,
+            "regOrder": 5,
+            "registerDate": "2023-09-07T09:07:55.463+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871831,
+            "optionName1": "네이비",
+            "optionName2": "100",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 6,
+            "registerDate": "2023-09-07T09:07:55.464+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871832,
+            "optionName1": "네이비",
+            "optionName2": "105",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 7,
+            "registerDate": "2023-09-07T09:07:55.465+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589185,
+            "optionName1": "네이비",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 8,
+            "registerDate": "2024-08-26T04:35:56.299+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589187,
+            "optionName1": "네이비",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 9,
+            "registerDate": "2024-08-26T04:35:56.300+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589189,
+            "optionName1": "블랙",
+            "optionName2": "095",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 10,
+            "registerDate": "2024-08-26T04:35:56.301+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589191,
+            "optionName1": "블랙",
+            "optionName2": "100",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 11,
+            "registerDate": "2024-08-26T04:35:56.301+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589193,
+            "optionName1": "블랙",
+            "optionName2": "105",
+            "stockQuantity": 15,
+            "price": 0,
+            "regOrder": 12,
+            "registerDate": "2024-08-26T04:35:56.302+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589194,
+            "optionName1": "블랙",
+            "optionName2": "110",
+            "stockQuantity": 3,
+            "price": 0,
+            "regOrder": 13,
+            "registerDate": "2024-08-26T04:35:56.303+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589195,
+            "optionName1": "블랙",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 14,
+            "registerDate": "2024-08-26T04:35:56.304+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871840,
+            "optionName1": "블루그린",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 15,
+            "registerDate": "2023-09-07T09:07:55.472+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871841,
+            "optionName1": "블루그린",
+            "optionName2": "100",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 16,
+            "registerDate": "2023-09-07T09:07:55.473+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871842,
+            "optionName1": "블루그린",
+            "optionName2": "105",
+            "stockQuantity": 29,
+            "price": 0,
+            "regOrder": 17,
+            "registerDate": "2023-09-07T09:07:55.476+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871843,
+            "optionName1": "블루그린",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 18,
+            "registerDate": "2023-09-07T09:07:55.477+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871845,
+            "optionName1": "블루그린",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 19,
+            "registerDate": "2023-09-07T09:07:55.478+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871847,
+            "optionName1": "샌드",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 20,
+            "registerDate": "2023-09-07T09:07:55.479+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871850,
+            "optionName1": "샌드",
+            "optionName2": "100",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 21,
+            "registerDate": "2023-09-07T09:07:55.479+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871851,
+            "optionName1": "샌드",
+            "optionName2": "105",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 22,
+            "registerDate": "2023-09-07T09:07:55.480+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871852,
+            "optionName1": "샌드",
+            "optionName2": "110",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 23,
+            "registerDate": "2023-09-07T09:07:55.481+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 34568871854,
+            "optionName1": "샌드",
+            "optionName2": "115",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 24,
+            "registerDate": "2023-09-07T09:07:55.483+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589196,
+            "optionName1": "카키",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 25,
+            "registerDate": "2024-08-26T04:35:56.304+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589197,
+            "optionName1": "카키",
+            "optionName2": "100",
+            "stockQuantity": 1,
+            "price": 0,
+            "regOrder": 26,
+            "registerDate": "2024-08-26T04:35:56.305+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589198,
+            "optionName1": "카키",
+            "optionName2": "105",
+            "stockQuantity": 5,
+            "price": 0,
+            "regOrder": 27,
+            "registerDate": "2024-08-26T04:35:56.306+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589199,
+            "optionName1": "카키",
+            "optionName2": "110",
+            "stockQuantity": 20,
+            "price": 0,
+            "regOrder": 28,
+            "registerDate": "2024-08-26T04:35:56.307+00:00",
+            "todayDispatch": true
+        },
+        {
+            "id": 43825589200,
+            "optionName1": "카키",
+            "optionName2": "115",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 29,
+            "registerDate": "2024-08-26T04:35:56.308+00:00",
+            "todayDispatch": true
+        }
+    ],
+    "optionStandards": [],
+    "supplementProductUsable": false,
+    "purchaseReviewInfo": {
+        "purchaseReviewExposure": true
+    },
+    "customMadeInfo": {
+        "customMade": false
+    },
+    "eventPhraseCont": "구매 후기 작성시 포인트 지급 이벤트!",
+    "manufactureDate": "2024-07-31T15:00:00.000+00:00",
+    "taxType": "TAX",
+    "certification": false,
+    "certificationTargetExcludeContent": {
+        "kcCertifiedProductExclusionYn": true,
+        "kcCertifiedProductExclusionType": "TRUE"
+    },
+    "minorPurchasable": true,
+    "productInfoProvidedNoticeView": {
+        "basic": {
+            "제품소재": "안감/겉감/충전재 : 폴리에스터 100%",
+            "색상": "그레이,네이비,블랙,블루그린,샌드,카키",
+            "치수": "095,100,105,110,115",
+            "제조자(사)": "이지바이/이지바이",
+            "제조국": "미얀마산((주)이지바이)",
+            "세탁방법 및 취급시 주의사항": "손세탁 중성세제사용 그늘건조",
+            "제조연월": "2024.08",
+            "품질보증기준": "1.전자상거래 소비자보호법에 따라 처리됨 2.관련법 및 소비자분쟁해결 규정에 따름",
+            "A/S 책임자와 전화번호": "********"
+        },
+        "additional": {
+            "재화등의 배송방법에 관한 정보": "택배",
+            "주문 이후 예상되는 배송기간": "대금 지급일로부터 3일 이내에 발송",
+            "제품하자·오배송 등에 따른 청약철회 등의 경우 청약철회 등의 기한 및 통신판매업자가 부담하는 반품비용 등에 관한 정보": "전자상거래 등에서의 소비자보호에 관한 법률 등에 의한 제품의 하자 또는 오배송 등으로 인한 청약철회의 경우에는 상품 수령 후 3개월 이내, 그 사실을 안 날 또는 알 수 있었던 날로부터 30일 이내에 청약철회를 할 수 있으며, 반품 비용은 통신판매업자가 부담합니다.",
+            "제품하자가 아닌 소비자의 단순변심에 따른 청약철회 시 소비자가 부담하는 반품비용 등에 관한 정보": "편도 2500원 (최초 배송비 무료인 경우 5000원 부과)",
+            "제품하자가 아닌 소비자의 단순변심에 따른 청약철회가 불가능한 경우 그 구체적 사유와 근거": "전자상거래 등에서의 소비자보호에 관한 법률 등에 의한 청약철회 제한 사유에 해당하는 경우 및 기타 객관적으로 이에 준하는 것으로 인정되는 경우 청약철회가 제한될 수 있습니다.",
+            "재화등의 교환·반품·보증 조건 및 품질보증기준": "소비자분쟁해결기준(공정거래위원회 고시) 및 관계법령에 따릅니다.",
+            "재화등의 A/S 관련 전화번호": "********",
+            "대금을 환불받기 위한 방법과 환불이 지연될 경우 지연배상금을 지급받을 수 있다는 지연배상금 지급의 구체적인 조건·절차": "주문취소 및 대금의 환불은 네이버페이 마이페이지에서 신청할 수 있으며, 전자상거래 등에서의 소비자보호에 관한 법률에 따라 소비자의 청약철회 후 판매자가 재화 등을 반환 받은 날로부터 3영업일 이내에 지급받은 대금의 환급을 정당한 사유 없이 지연하는 때에는 소비자는 지연기간에 대해서 연 15%의 지연배상금을 판매자에게 청구할 수 있습니다.",
+            "소비자피해보상의 처리, 재화등에 대한 불만 처리 및 소비자와 사업자 사이의 분쟁처리에 관한 사항": "소비자분쟁해결기준(공정거래위원회 고시) 및 관계법령에 따릅니다.",
+            "거래에 관한 약관의 내용 또는 확인할 수 있는 방법": "상품상세 페이지 및 페이지 하단의 이용약관 링크를 통해 확인할 수 있습니다."
+        }
+    },
+    "productAttributes": [
+        {
+            "attributeValueSeq": 10040059,
+            "attributeSeq": 10011015,
+            "attributeName": "핏",
+            "attributeClassificationType": "SINGLE_SELECT",
+            "minAttributeValue": "기본핏",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        },
+        {
+            "attributeValueSeq": 10574775,
+            "attributeSeq": 10012483,
+            "attributeName": "주요소재",
+            "attributeClassificationType": "MULTI_SELECT",
+            "minAttributeValue": "폴리에스테르",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        },
+        {
+            "attributeValueSeq": 10726989,
+            "attributeSeq": 10013326,
+            "attributeName": "충전재",
+            "attributeClassificationType": "SINGLE_SELECT",
+            "minAttributeValue": "솜/폴리에스테르",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        },
+        {
+            "attributeValueSeq": 10040049,
+            "attributeSeq": 10013386,
+            "attributeName": "패턴",
+            "attributeClassificationType": "MULTI_SELECT",
+            "minAttributeValue": "무지",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        },
+        {
+            "attributeValueSeq": 10904496,
+            "attributeSeq": 10013498,
+            "attributeName": "총기장",
+            "attributeClassificationType": "SINGLE_SELECT",
+            "minAttributeValue": "기본/하프",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        },
+        {
+            "attributeValueSeq": 10702137,
+            "attributeSeq": 10012814,
+            "attributeName": "충전량(최소)",
+            "attributeClassificationType": "RANGE",
+            "minAttributeValue": "200",
+            "minAttributeValueUnitText": "g",
+            "maxAttributeValue": "400",
+            "maxAttributeValueUnitText": "g",
+            "attributeRealValue": "302",
+            "attributeRealValueUnitText": "g"
+        },
+        {
+            "attributeValueSeq": 10258053,
+            "attributeSeq": 10013325,
+            "attributeName": "특징",
+            "attributeClassificationType": "MULTI_SELECT",
+            "minAttributeValue": "경량",
+            "minAttributeValueUnitText": "",
+            "maxAttributeValueUnitText": "",
+            "attributeRealValueUnitText": ""
+        }
+    ],
+    "productDeliveryInfo": {
+        "deliveryFeeType": "CONDITIONAL_FREE",
+        "deliveryMethodTypes": [
+            "DELIVERY"
+        ],
+        "baseFee": 2500,
+        "deliveryFeePayType": "PREPAID",
+        "freeConditionalAmount": 30000,
+        "installationFee": false,
+        "deliveryBundleGroup": {
+            "id": 22743360,
+            "deliveryFeeChargeMethodType": "MIN"
+        },
+        "deliveryFeePolicyText": "30,000원 이상 구매 시 무료",
+        "deliveryAttributeType": "TODAY",
+        "todayDelivery": true,
+        "thisDayDispatchBasisTime": "04:00:00.000+0000",
+        "deliveryCompany": {
+            "id": "EPOST",
+            "name": "우체국택배"
+        }
+    },
+    "claimDeliveryInfo": {
+        "returnDeliveryCompanyPriority": "PRIMARY",
+        "deliveryCompanyName": "우체국택배",
+        "deliveryCompanyCode": "EPOST",
+        "naverPayAppointment": false,
+        "returnDeliveryFee": 2500,
+        "exchangeDeliveryFee": 5000,
+        "shippingAddressId": 419160,
+        "returnAddressId": 419161,
+        "shippingAddress": "대구광역시 달성군 다사읍 서재로14길 6-30 이지바이 (우 : 42927) ",
+        "returnAddress": "대구광역시 달성군 다사읍 서재로14길 6-30 이지바이 (우 : 42927) ",
+        "overseasShipping": false,
+        "freeReturnInsurance": false
+    },
+    "isCultureCostIncomeDeduction": false,
+    "isRestrictCart": false,
+    "naverGuaranteed": false,
+    "newShoppingExposureYn": true,
+    "benefitsView": {
+        "discountedSalePrice": 25900,
+        "mobileDiscountedSalePrice": 25900,
+        "dispDiscountedSalePrice": 25900,
+        "sellerImmediateDiscountAmount": 4000,
+        "mobileSellerImmediateDiscountAmount": 4000,
+        "managerImmediateDiscountAmount": 0,
+        "mobileManagerImmediateDiscountAmount": 0,
+        "specialDiscountAmount": {},
+        "discountedRatio": 13,
+        "mobileDiscountedRatio": 13,
+        "dispDiscountedRatio": 13,
+        "sellerPurchasePoint": 0,
+        "mobileSellerPurchasePoint": 0,
+        "sellerCustomerManagementPoint": 0,
+        "mobileSellerCustomerManagementPoint": 0,
+        "managerPurchasePoint": 259,
+        "mobileManagerPurchasePoint": 259,
+        "managerPurchaseExtraPoint": 0,
+        "mobileManagerPurchaseExtraPoint": 0,
+        "managerPaymoneyAccumulatePoint": 388,
+        "mobileManagerPaymoneyAccumulatePoint": 388,
+        "managerBankbookAccumulatePoint": 129,
+        "mobileManagerBankbookAccumulatePoint": 129,
+        "managerArrivalGuaranteePoint": 0,
+        "mobileManagerArrivalGuaranteePoint": 0,
+        "managerMembershipArrivalGuaranteePoint": 0,
+        "mobileManagerMembershipArrivalGuaranteePoint": 0,
+        "generalPurchaseReviewPoint": 150,
+        "premiumPurchaseReviewPoint": 150,
+        "managerGeneralPurchaseReviewPoint": 50,
+        "managerPremiumPurchaseReviewPoint": 150,
+        "textReviewPoint": 150,
+        "photoVideoReviewPoint": 150,
+        "afterUseTextReviewPoint": 150,
+        "afterUsePhotoVideoReviewPoint": 150,
+        "storeMemberReviewPoint": 150,
+        "managerTextReviewPoint": 50,
+        "managerPhotoVideoReviewPoint": 150,
+        "managerAfterUseTextReviewPoint": 0,
+        "managerAfterUsePhotoVideoReviewPoint": 0,
+        "givePresent": true
+    },
+    "benefitsPolicy": {
+        "sellerImmediateDiscountPolicyNo": "SE_5809950681",
+        "sellerImmediateDiscountValueUnit": "WON",
+        "sellerImmediateDiscountValue": 4000,
+        "managerPurchasePointPolicyNo": 10511031105304,
+        "managerPurchasePointValueUnit": "PERCENT",
+        "managerPurchasePointValue": 1,
+        "managerMaxPurchasePointAmount": 100000,
+        "managerPaymoneyAccumulatePolicyNo": 439583905,
+        "managerPaymoneyAccumulateValueUnit": "PERCENT",
+        "managerPaymoneyAccumulateValue": 1.5,
+        "managerMaxPaymoneyAccumulateAmount": 30000,
+        "managerBankbookAccumulatePolicyNo": 13927943816488,
+        "managerBankbookAccumulateValueUnit": "PERCENT",
+        "managerBankbookAccumulateValue": 0.5,
+        "managerMaxBankbookAccumulateAmount": 10000,
+        "sellerReviewPointPolicyNo": 26572910119,
+        "sellerGeneralPurchaseReviewPoint": 150,
+        "sellerPremiumReviewPoint": 150,
+        "sellerTextReviewPoint": 150,
+        "sellerPhotoVideoReviewPoint": 150,
+        "sellerAfterUseTextReviewPoint": 150,
+        "sellerAfterUsePhotoVideoReviewPoint": 150,
+        "sellerStoreMemberReviewPoint": 150,
+        "givePresent": true
+    },
+    "mobileBenefitsPolicy": {
+        "sellerImmediateDiscountPolicyNo": "SE_5809950681",
+        "sellerImmediateDiscountValueUnit": "WON",
+        "sellerImmediateDiscountValue": 4000,
+        "managerPurchasePointPolicyNo": 10511031105304,
+        "managerPurchasePointValueUnit": "PERCENT",
+        "managerPurchasePointValue": 1,
+        "managerMaxPurchasePointAmount": 100000,
+        "managerPaymoneyAccumulatePolicyNo": 439583905,
+        "managerPaymoneyAccumulateValueUnit": "PERCENT",
+        "managerPaymoneyAccumulateValue": 1.5,
+        "managerMaxPaymoneyAccumulateAmount": 30000,
+        "managerBankbookAccumulatePolicyNo": 13927943816488,
+        "managerBankbookAccumulateValueUnit": "PERCENT",
+        "managerBankbookAccumulateValue": 0.5,
+        "managerMaxBankbookAccumulateAmount": 10000,
+        "sellerReviewPointPolicyNo": 26572910119,
+        "sellerGeneralPurchaseReviewPoint": 150,
+        "sellerPremiumReviewPoint": 150,
+        "sellerTextReviewPoint": 150,
+        "sellerPhotoVideoReviewPoint": 150,
+        "sellerAfterUseTextReviewPoint": 150,
+        "sellerAfterUsePhotoVideoReviewPoint": 150,
+        "sellerStoreMemberReviewPoint": 150,
+        "givePresent": true
+    },
+    "reviewAmount": {
+        "totalReviewCount": 1193,
+        "score1ReviewCount": 7,
+        "score2ReviewCount": 3,
+        "score3ReviewCount": 45,
+        "score4ReviewCount": 179,
+        "score5ReviewCount": 959,
+        "averageReviewScore": 4.74,
+        "productSatisfactionPercent": 0,
+        "premiumReviewHighlyRecommendationCount": 0,
+        "premiumReviewRecommendationCount": 0,
+        "premiumReviewNormalCount": 0,
+        "premiumReviewNotRecommendationCount": 0,
+        "generalReviewSatisfactionCount": 0,
+        "generalReviewNormalCount": 0,
+        "generalReviewDisSatisfactionCount": 0,
+        "premiumReviewCount": 0
+    },
+    "productDeliveryLeadTimes": [
+        {
+            "rangeNumberText": "1",
+            "rangeText": "일 이내",
+            "leadTimeCount": 60,
+            "leadTimePercent": 42
+        },
+        {
+            "rangeNumberText": "2",
+            "rangeText": "일 이내",
+            "leadTimeCount": 82,
+            "leadTimePercent": 57
+        },
+        {
+            "rangeNumberText": "3",
+            "rangeText": "일 이내",
+            "leadTimeCount": 1,
+            "leadTimePercent": 1
+        },
+        {
+            "rangeNumberText": "4",
+            "rangeText": "일 이상",
+            "leadTimeCount": 0,
+            "leadTimePercent": 0
+        }
+    ],
+    "sellerDeliveryLeadTimes": [
+        {
+            "rangeNumberText": "1",
+            "rangeText": "일 이내",
+            "leadTimeCount": 792,
+            "leadTimePercent": 39
+        },
+        {
+            "rangeNumberText": "2",
+            "rangeText": "일 이내",
+            "leadTimeCount": 1203,
+            "leadTimePercent": 59
+        },
+        {
+            "rangeNumberText": "3",
+            "rangeText": "일 이내",
+            "leadTimeCount": 39,
+            "leadTimePercent": 2
+        },
+        {
+            "rangeNumberText": "4",
+            "rangeText": "일 이상",
+            "leadTimeCount": 2,
+            "leadTimePercent": 0
+        }
+    ],
+    "averageDeliveryLeadTime": {
+        "productAverageDeliveryLeadTime": 1.5244756,
+        "sellerAverageDeliveryLeadTime": 1.5731827
+    },
+    "productDailyDeliveryLeadTimes": {
+        "leadTimeCount": [
+            9,
+            51,
+            82,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "leadTimeViewType": "NORMAL_DELIVERY"
+    },
+    "sellerDailyDeliveryLeadTimes": {
+        "leadTimeCount": [
+            120,
+            672,
+            1203,
+            39,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "leadTimeViewType": "NORMAL_DELIVERY"
+    },
+    "detailContents": {
+        "excessDetailContentText": false,
+        "editorType": "NONE"
+    },
+    "product3dImageConfig": {},
+    "productSize": {
+        "sizeTypeNo": 10032,
+        "sizeName": "베스트",
+        "sizeUnitType": "CM",
+        "sizeValueTypes": [
+            {
+                "sizeValueTypeNo": 72,
+                "sizeValueTypeName": "어깨너비",
+                "exposureOrder": 1
+            },
+            {
+                "sizeValueTypeNo": 73,
+                "sizeValueTypeName": "가슴단면",
+                "exposureOrder": 2
+            },
+            {
+                "sizeValueTypeNo": 75,
+                "sizeValueTypeName": "암홀단면",
+                "exposureOrder": 4
+            },
+            {
+                "sizeValueTypeNo": 76,
+                "sizeValueTypeName": "총장",
+                "exposureOrder": 5
+            }
+        ],
+        "sizeAttributes": [
+            {
+                "sizeAttributeName": "095",
+                "exposureOrder": 1,
+                "sizeValues": [
+                    {
+                        "sizeValueTypeNo": 72,
+                        "value": 42
+                    },
+                    {
+                        "sizeValueTypeNo": 73,
+                        "value": 52
+                    },
+                    {
+                        "sizeValueTypeNo": 75,
+                        "value": 29
+                    },
+                    {
+                        "sizeValueTypeNo": 76,
+                        "value": 63
+                    }
+                ]
+            },
+            {
+                "sizeAttributeName": "100",
+                "exposureOrder": 2,
+                "sizeValues": [
+                    {
+                        "sizeValueTypeNo": 72,
+                        "value": 44
+                    },
+                    {
+                        "sizeValueTypeNo": 73,
+                        "value": 54
+                    },
+                    {
+                        "sizeValueTypeNo": 75,
+                        "value": 30
+                    },
+                    {
+                        "sizeValueTypeNo": 76,
+                        "value": 65
+                    }
+                ]
+            },
+            {
+                "sizeAttributeName": "105",
+                "exposureOrder": 3,
+                "sizeValues": [
+                    {
+                        "sizeValueTypeNo": 72,
+                        "value": 45
+                    },
+                    {
+                        "sizeValueTypeNo": 73,
+                        "value": 57
+                    },
+                    {
+                        "sizeValueTypeNo": 75,
+                        "value": 31
+                    },
+                    {
+                        "sizeValueTypeNo": 76,
+                        "value": 67
+                    }
+                ]
+            },
+            {
+                "sizeAttributeName": "110",
+                "exposureOrder": 4,
+                "sizeValues": [
+                    {
+                        "sizeValueTypeNo": 72,
+                        "value": 47
+                    },
+                    {
+                        "sizeValueTypeNo": 73,
+                        "value": 59
+                    },
+                    {
+                        "sizeValueTypeNo": 75,
+                        "value": 32
+                    },
+                    {
+                        "sizeValueTypeNo": 76,
+                        "value": 69
+                    }
+                ]
+            },
+            {
+                "sizeAttributeName": "115",
+                "exposureOrder": 5,
+                "sizeValues": [
+                    {
+                        "sizeValueTypeNo": 72,
+                        "value": 48
+                    },
+                    {
+                        "sizeValueTypeNo": 73,
+                        "value": 61
+                    },
+                    {
+                        "sizeValueTypeNo": 75,
+                        "value": 33
+                    },
+                    {
+                        "sizeValueTypeNo": 76,
+                        "value": 71
+                    }
+                ]
+            }
+        ],
+        "sizeImage": {
+            "order": 1,
+            "url": "http://shop1.phinf.naver.net/20240822_222/1724321247609AE3QS_PNG/5751451384414321_132555811.png",
+            "width": 760,
+            "height": 760
+        }
+    },
+    "useExternalStock": false,
+    "dispName": "남성 경량 패딩조끼 겨울 남자 웰론 브이넥 누빔조끼 베스트 (AB23V006M)",
+    "adultAuthorizationType": "NOT_LOGIN",
+    "authorizationDisplay": "NORMAL",
+    "representImage": {
+        "order": 1,
+        "url": "https://shop-phinf.pstatic.net/20241119_174/1731990127392vKrIy_JPEG/33948534364589175_1338253251.jpg",
+        "width": 600,
+        "height": 600,
+        "imageType": "REPRESENTATIVE"
+    },
+    "view360Image": [],
+    "galleryImages": [
+        {
+            "order": 1,
+            "url": "https://shop-phinf.pstatic.net/20241119_174/1731990127392vKrIy_JPEG/33948534364589175_1338253251.jpg",
+            "width": 600,
+            "height": 600,
+            "imageType": "REPRESENTATIVE"
+        },
+        {
+            "order": 1,
+            "url": "https://shop-phinf.pstatic.net/20241115_166/1731633349568qRVwh_JPEG/3025624370930785_258296633.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 2,
+            "url": "https://shop-phinf.pstatic.net/20241115_119/1731633349723fiJpY_JPEG/3025624529403951_1521630549.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 3,
+            "url": "https://shop-phinf.pstatic.net/20241115_190/1731633349891Bg7Pk_JPEG/3025624696476132_3454223.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 4,
+            "url": "https://shop-phinf.pstatic.net/20241115_207/1731633350034WTUL8_JPEG/3025624848782062_486994869.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        },
+        {
+            "order": 5,
+            "url": "https://shop-phinf.pstatic.net/20241115_197/1731633350287cjEBy_JPEG/3025625102007069_350019533.jpg",
+            "width": 1000,
+            "height": 1000,
+            "imageType": "OPTIONAL"
+        }
+    ],
+    "soldout": false,
+    "viewAttributes": {
+        "상품상태": "신상품",
+        "상품번호": "5836562085",
+        "제조사": "이지바이",
+        "브랜드": "엑스트라스포티",
+        "모델명": "이지바이 프라우드 남성 V넥 경량 패딩 조끼 AB23V006M",
+        "이벤트": "구매 후기 작성시 포인트 지급 이벤트!",
+        "원산지": "미얀마산((주)이지바이)",
+        "제조일자": "2024.08.01."
+    },
+    "additionalAttributes": {
+        "영수증발급": "신용카드전표, 현금영수증발급",
+        "A/S 안내": [
+            "********",
+            "********"
+        ]
+    },
+    "detailAttributes": {
+        "핏": "기본핏",
+        "주요소재": "폴리에스테르",
+        "충전재": "솜/폴리에스테르",
+        "패턴": "무지",
+        "총기장": "기본/하프",
+        "충전량(최소)": "302g",
+        "특징": "경량"
+    },
+    "sellerTags": [
+        {
+            "code": "7708",
+            "text": "패딩베스트"
+        },
+        {
+            "code": "424125",
+            "text": "이너조끼"
+        },
+        {
+            "code": "363945",
+            "text": "겨울조끼"
+        },
+        {
+            "code": "652320",
+            "text": "경량조끼"
+        },
+        {
+            "code": "63760",
+            "text": "발열조끼"
+        },
+        {
+            "code": "41234",
+            "text": "등산복조끼"
+        },
+        {
+            "code": "413386",
+            "text": "겨울이너"
+        },
+        {
+            "code": "447581",
+            "text": "코트이너"
+        },
+        {
+            "code": "468681",
+            "text": "경량패딩조끼"
+        },
+        {
+            "code": "102858",
+            "text": "털조끼"
+        }
+    ],
+    "eCouponCategory": false,
+    "cultureCategory": false,
+    "textOptions": [],
+    "simpleOptions": [],
+    "combinationOptions": [
+        {
+            "groupName": "색상",
+            "options": [
+                {
+                    "id": 34568871825,
+                    "optionName1": "그레이",
+                    "optionName2": "095",
+                    "stockQuantity": 30,
+                    "price": 0,
+                    "regOrder": 0,
+                    "registerDate": "2023-09-07T09:07:55.457+00:00",
+                    "todayDispatch": true
+                },
+                {
+                    "id": 34568871830,
+                    "optionName1": "네이비",
+                    "optionName2": "095",
+                    "stockQuantity": 31,
+                    "price": 0,
+                    "regOrder": 5,
+                    "registerDate": "2023-09-07T09:07:55.463+00:00",
+                    "todayDispatch": true
+                },
+                {
+                    "id": 43825589189,
+                    "optionName1": "블랙",
+                    "optionName2": "095",
+                    "stockQuantity": 10,
+                    "price": 0,
+                    "regOrder": 10,
+                    "registerDate": "2024-08-26T04:35:56.301+00:00",
+                    "todayDispatch": true
+                },
+                {
+                    "id": 34568871840,
+                    "optionName1": "블루그린",
+                    "optionName2": "095",
+                    "stockQuantity": 0,
+                    "price": 0,
+                    "regOrder": 15,
+                    "registerDate": "2023-09-07T09:07:55.472+00:00",
+                    "todayDispatch": true
+                },
+                {
+                    "id": 34568871847,
+                    "optionName1": "샌드",
+                    "optionName2": "095",
+                    "stockQuantity": 0,
+                    "price": 0,
+                    "regOrder": 20,
+                    "registerDate": "2023-09-07T09:07:55.479+00:00",
+                    "todayDispatch": true
+                },
+                {
+                    "id": 43825589196,
+                    "optionName1": "카키",
+                    "optionName2": "095",
+                    "stockQuantity": 0,
+                    "price": 0,
+                    "regOrder": 25,
+                    "registerDate": "2024-08-26T04:35:56.304+00:00",
+                    "todayDispatch": true
+                }
+            ],
+            "checkedName": null,
+            "checkedIds": null,
+            "price": 0,
+            "isLastDepth": false
+        },
+        {
+            "groupName": "사이즈",
+            "options": null,
+            "checkedName": null,
+            "checkedIds": null,
+            "price": 0,
+            "isLastDepth": true
+        }
+    ],
+    "standardOptions": [],
+    "standardCombinations": [
+        {
+            "id": 34568871825,
+            "optionName1": "그레이",
+            "optionName2": "095",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 0,
+            "registerDate": "2023-09-07T09:07:55.457+00:00",
+            "todayDispatch": true,
+            "title": "_그레이_095___"
+        },
+        {
+            "id": 34568871826,
+            "optionName1": "그레이",
+            "optionName2": "100",
+            "stockQuantity": 27,
+            "price": 0,
+            "regOrder": 1,
+            "registerDate": "2023-09-07T09:07:55.458+00:00",
+            "todayDispatch": true,
+            "title": "_그레이_100___"
+        },
+        {
+            "id": 43825589179,
+            "optionName1": "그레이",
+            "optionName2": "105",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 2,
+            "registerDate": "2024-08-26T04:35:56.297+00:00",
+            "todayDispatch": true,
+            "title": "_그레이_105___"
+        },
+        {
+            "id": 43825589181,
+            "optionName1": "그레이",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 3,
+            "registerDate": "2024-08-26T04:35:56.298+00:00",
+            "todayDispatch": true,
+            "title": "_그레이_110___"
+        },
+        {
+            "id": 43825589183,
+            "optionName1": "그레이",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 4,
+            "registerDate": "2024-08-26T04:35:56.298+00:00",
+            "todayDispatch": true,
+            "title": "_그레이_115___"
+        },
+        {
+            "id": 34568871830,
+            "optionName1": "네이비",
+            "optionName2": "095",
+            "stockQuantity": 31,
+            "price": 0,
+            "regOrder": 5,
+            "registerDate": "2023-09-07T09:07:55.463+00:00",
+            "todayDispatch": true,
+            "title": "_네이비_095___"
+        },
+        {
+            "id": 34568871831,
+            "optionName1": "네이비",
+            "optionName2": "100",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 6,
+            "registerDate": "2023-09-07T09:07:55.464+00:00",
+            "todayDispatch": true,
+            "title": "_네이비_100___"
+        },
+        {
+            "id": 34568871832,
+            "optionName1": "네이비",
+            "optionName2": "105",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 7,
+            "registerDate": "2023-09-07T09:07:55.465+00:00",
+            "todayDispatch": true,
+            "title": "_네이비_105___"
+        },
+        {
+            "id": 43825589185,
+            "optionName1": "네이비",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 8,
+            "registerDate": "2024-08-26T04:35:56.299+00:00",
+            "todayDispatch": true,
+            "title": "_네이비_110___"
+        },
+        {
+            "id": 43825589187,
+            "optionName1": "네이비",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 9,
+            "registerDate": "2024-08-26T04:35:56.300+00:00",
+            "todayDispatch": true,
+            "title": "_네이비_115___"
+        },
+        {
+            "id": 43825589189,
+            "optionName1": "블랙",
+            "optionName2": "095",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 10,
+            "registerDate": "2024-08-26T04:35:56.301+00:00",
+            "todayDispatch": true,
+            "title": "_블랙_095___"
+        },
+        {
+            "id": 43825589191,
+            "optionName1": "블랙",
+            "optionName2": "100",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 11,
+            "registerDate": "2024-08-26T04:35:56.301+00:00",
+            "todayDispatch": true,
+            "title": "_블랙_100___"
+        },
+        {
+            "id": 43825589193,
+            "optionName1": "블랙",
+            "optionName2": "105",
+            "stockQuantity": 15,
+            "price": 0,
+            "regOrder": 12,
+            "registerDate": "2024-08-26T04:35:56.302+00:00",
+            "todayDispatch": true,
+            "title": "_블랙_105___"
+        },
+        {
+            "id": 43825589194,
+            "optionName1": "블랙",
+            "optionName2": "110",
+            "stockQuantity": 3,
+            "price": 0,
+            "regOrder": 13,
+            "registerDate": "2024-08-26T04:35:56.303+00:00",
+            "todayDispatch": true,
+            "title": "_블랙_110___"
+        },
+        {
+            "id": 43825589195,
+            "optionName1": "블랙",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 14,
+            "registerDate": "2024-08-26T04:35:56.304+00:00",
+            "todayDispatch": true,
+            "title": "_블랙_115___"
+        },
+        {
+            "id": 34568871840,
+            "optionName1": "블루그린",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 15,
+            "registerDate": "2023-09-07T09:07:55.472+00:00",
+            "todayDispatch": true,
+            "title": "_블루그린_095___"
+        },
+        {
+            "id": 34568871841,
+            "optionName1": "블루그린",
+            "optionName2": "100",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 16,
+            "registerDate": "2023-09-07T09:07:55.473+00:00",
+            "todayDispatch": true,
+            "title": "_블루그린_100___"
+        },
+        {
+            "id": 34568871842,
+            "optionName1": "블루그린",
+            "optionName2": "105",
+            "stockQuantity": 29,
+            "price": 0,
+            "regOrder": 17,
+            "registerDate": "2023-09-07T09:07:55.476+00:00",
+            "todayDispatch": true,
+            "title": "_블루그린_105___"
+        },
+        {
+            "id": 34568871843,
+            "optionName1": "블루그린",
+            "optionName2": "110",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 18,
+            "registerDate": "2023-09-07T09:07:55.477+00:00",
+            "todayDispatch": true,
+            "title": "_블루그린_110___"
+        },
+        {
+            "id": 34568871845,
+            "optionName1": "블루그린",
+            "optionName2": "115",
+            "stockQuantity": 30,
+            "price": 0,
+            "regOrder": 19,
+            "registerDate": "2023-09-07T09:07:55.478+00:00",
+            "todayDispatch": true,
+            "title": "_블루그린_115___"
+        },
+        {
+            "id": 34568871847,
+            "optionName1": "샌드",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 20,
+            "registerDate": "2023-09-07T09:07:55.479+00:00",
+            "todayDispatch": true,
+            "title": "_샌드_095___"
+        },
+        {
+            "id": 34568871850,
+            "optionName1": "샌드",
+            "optionName2": "100",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 21,
+            "registerDate": "2023-09-07T09:07:55.479+00:00",
+            "todayDispatch": true,
+            "title": "_샌드_100___"
+        },
+        {
+            "id": 34568871851,
+            "optionName1": "샌드",
+            "optionName2": "105",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 22,
+            "registerDate": "2023-09-07T09:07:55.480+00:00",
+            "todayDispatch": true,
+            "title": "_샌드_105___"
+        },
+        {
+            "id": 34568871852,
+            "optionName1": "샌드",
+            "optionName2": "110",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 23,
+            "registerDate": "2023-09-07T09:07:55.481+00:00",
+            "todayDispatch": true,
+            "title": "_샌드_110___"
+        },
+        {
+            "id": 34568871854,
+            "optionName1": "샌드",
+            "optionName2": "115",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 24,
+            "registerDate": "2023-09-07T09:07:55.483+00:00",
+            "todayDispatch": true,
+            "title": "_샌드_115___"
+        },
+        {
+            "id": 43825589196,
+            "optionName1": "카키",
+            "optionName2": "095",
+            "stockQuantity": 0,
+            "price": 0,
+            "regOrder": 25,
+            "registerDate": "2024-08-26T04:35:56.304+00:00",
+            "todayDispatch": true,
+            "title": "_카키_095___"
+        },
+        {
+            "id": 43825589197,
+            "optionName1": "카키",
+            "optionName2": "100",
+            "stockQuantity": 1,
+            "price": 0,
+            "regOrder": 26,
+            "registerDate": "2024-08-26T04:35:56.305+00:00",
+            "todayDispatch": true,
+            "title": "_카키_100___"
+        },
+        {
+            "id": 43825589198,
+            "optionName1": "카키",
+            "optionName2": "105",
+            "stockQuantity": 5,
+            "price": 0,
+            "regOrder": 27,
+            "registerDate": "2024-08-26T04:35:56.306+00:00",
+            "todayDispatch": true,
+            "title": "_카키_105___"
+        },
+        {
+            "id": 43825589199,
+            "optionName1": "카키",
+            "optionName2": "110",
+            "stockQuantity": 20,
+            "price": 0,
+            "regOrder": 28,
+            "registerDate": "2024-08-26T04:35:56.307+00:00",
+            "todayDispatch": true,
+            "title": "_카키_110___"
+        },
+        {
+            "id": 43825589200,
+            "optionName1": "카키",
+            "optionName2": "115",
+            "stockQuantity": 10,
+            "price": 0,
+            "regOrder": 29,
+            "registerDate": "2024-08-26T04:35:56.308+00:00",
+            "todayDispatch": true,
+            "title": "_카키_115___"
+        }
+    ],
+    "supplements": [],
+    "deliveryText": "30,000원 이상 구매 시 무료",
+    "deliveryMethodType": {
+        "code": 1,
+        "name": "택배",
+        "description": "택배",
+        "etc": null,
+        "naverPayCode": "DELIVERY"
+    },
+    "deliveryPayType": "PREPAID",
+    "discountedSalePrice": 25900,
+    "mobileDiscountRatio": 13,
+    "hopeDelivery": null,
+    "commentCount": 34,
+    "interestFreePlans": {
+        "hasInterestFreePlans": true,
+        "sellerBurden": {},
+        "adminBurden": {
+            "롯데": [
+                {
+                    "cardCorpName": "롯데",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_lottecard_n.png",
+                    "managerFreeInterestBurdenType": "MP",
+                    "managerFreeInterestCode": "MEMBERSHIP",
+                    "freeInterestMonth": "12",
+                    "minPayAmount": 1000000
+                },
+                {
+                    "cardCorpName": "롯데",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_lottecard_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3,4,5",
+                    "minPayAmount": 50000
+                }
+            ],
+            "신한": [
+                {
+                    "cardCorpName": "신한",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "managerFreeInterestBurdenType": "MP",
+                    "managerFreeInterestCode": "MEMBERSHIP",
+                    "freeInterestMonth": "12",
+                    "minPayAmount": 1000000
+                },
+                {
+                    "cardCorpName": "신한",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "신한",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "7",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3"
+                },
+                {
+                    "cardCorpName": "신한",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "9",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4"
+                },
+                {
+                    "cardCorpName": "신한",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "11",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4,5"
+                }
+            ],
+            "국민": [
+                {
+                    "cardCorpName": "국민",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "managerFreeInterestBurdenType": "MP",
+                    "managerFreeInterestCode": "MEMBERSHIP",
+                    "freeInterestMonth": "12",
+                    "minPayAmount": 1000000
+                },
+                {
+                    "cardCorpName": "국민",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "국민",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "6",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3"
+                },
+                {
+                    "cardCorpName": "국민",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "10",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4,5"
+                }
+            ],
+            "삼성": [
+                {
+                    "cardCorpName": "삼성",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_samsung_n.png",
+                    "managerFreeInterestBurdenType": "MP",
+                    "managerFreeInterestCode": "MEMBERSHIP",
+                    "freeInterestMonth": "12",
+                    "minPayAmount": 1000000
+                },
+                {
+                    "cardCorpName": "삼성",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_samsung_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "삼성",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_samsung_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "7",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3"
+                },
+                {
+                    "cardCorpName": "삼성",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_samsung_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "11",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4,5"
+                }
+            ],
+            "BC": [
+                {
+                    "cardCorpName": "BC",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_BCcard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3,4,5",
+                    "minPayAmount": 50000
+                }
+            ],
+            "우리": [
+                {
+                    "cardCorpName": "우리",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_wooricard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3,4,5",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "우리",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_wooricard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "10",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4"
+                }
+            ],
+            "하나": [
+                {
+                    "cardCorpName": "하나",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_hanacard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3,4",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "하나",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_hanacard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "6",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3"
+                },
+                {
+                    "cardCorpName": "하나",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_hanacard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "10",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3,4"
+                }
+            ],
+            "NH": [
+                {
+                    "cardCorpName": "NH",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_NH_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3",
+                    "minPayAmount": 50000
+                },
+                {
+                    "cardCorpName": "NH",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_NH_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "4,5,6",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2"
+                },
+                {
+                    "cardCorpName": "NH",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_NH_n.png",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "7,8,9,10",
+                    "minPayAmount": 50000,
+                    "customerBurdenMonth": "1,2,3"
+                }
+            ],
+            "현대": [
+                {
+                    "cardCorpName": "현대",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_hyundaicard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "2,3",
+                    "minPayAmount": 10000
+                },
+                {
+                    "cardCorpName": "현대",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_hyundaicard.gif",
+                    "managerFreeInterestBurdenType": "PG",
+                    "freeInterestMonth": "10",
+                    "minPayAmount": 10000,
+                    "customerBurdenMonth": "1,2,3,4,5"
+                }
+            ]
+        },
+        "maxInterestFreePlanMonths": 12,
+        "specialPlans": {
+            "CCKM": [
+                {
+                    "interestCardCompanyId": "CCKM",
+                    "interestCardProductCode": "none",
+                    "interestInstallmentType": "total",
+                    "interestInstallmentMonths": "24,36",
+                    "interestMinAmount": 1000000,
+                    "interestCustomerBurdenCommissionRate": 7,
+                    "interestShowCommissionRateYn": "y",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "cardCorpName": "국민"
+                },
+                {
+                    "interestCardCompanyId": "CCKM",
+                    "interestCardProductCode": "none",
+                    "interestInstallmentType": "total",
+                    "interestInstallmentMonths": "48,60",
+                    "interestMinAmount": 1000000,
+                    "interestCustomerBurdenCommissionRate": 8,
+                    "interestShowCommissionRateYn": "y",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_KBbank.gif",
+                    "cardCorpName": "국민"
+                }
+            ],
+            "CCLG": [
+                {
+                    "interestCardCompanyId": "CCLG",
+                    "interestCardProductCode": "none",
+                    "interestInstallmentType": "total",
+                    "interestInstallmentMonths": "24,36",
+                    "interestMinAmount": 1000000,
+                    "interestCustomerBurdenCommissionRate": 7,
+                    "interestShowCommissionRateYn": "y",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "cardCorpName": "신한"
+                },
+                {
+                    "interestCardCompanyId": "CCLG",
+                    "interestCardProductCode": "none",
+                    "interestInstallmentType": "total",
+                    "interestInstallmentMonths": "48,60",
+                    "interestMinAmount": 1000000,
+                    "interestCustomerBurdenCommissionRate": 8,
+                    "interestShowCommissionRateYn": "y",
+                    "cardCorpImageUrl": "https://ssl.pstatic.net/static.pay/u/card/logocard_shinhanbank.gif",
+                    "cardCorpName": "신한"
+                }
+            ]
+        }
+    },
+    "isPayMember": false,
+    "arrivalGuarantee": false,
+    "rmids": [],
+    "groupId": null,
+    "groupEpId": null,
+    "simpleProductAffiliateYn": false,
+    "disableAdditionalApi": false
+}

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+*.log
+
+logs/*
+
+# VS Code workspace settings (keep settings.json for team)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

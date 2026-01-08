@@ -1,0 +1,66 @@
+{
+    "basicBenefits": [
+        {
+            "accountNo": 500025734,
+            "customerManageBenefitPolicyNo": 2362234,
+            "benefitPolicyName": "이지바이 소식알림 쿠폰 중복할인가능",
+            "benefitGroupSeq": 2156000,
+            "benefitKindType": "COUPON",
+            "customerManageBenefitType": "TALK_FRIEND",
+            "customerManageBenefitStatusType": "ON",
+            "repurchaseConditionType": "PRODUCT",
+            "useObjectType": "ACCOUNT",
+            "benefitUnitType": "PERCENT",
+            "benefitValue": 2,
+            "benefitStartDate": "2019-09-30T15:00:00.000+0000",
+            "couponPublicationNo": "2002825248",
+            "couponPublicationType": "DOWNLOAD",
+            "maxDiscountAmount": 10000,
+            "validPeriodType": "ISSUE_DATE",
+            "validityDay": 30,
+            "interestTypes": [
+                "TALK_TALK"
+            ],
+            "onlyInterest": false,
+            "couponKindType": "ORDER",
+            "couponItemDetailExposureYn": true,
+            "couponTalkExposureYn": true,
+            "usageConditionType": "ALL",
+            "membershipCouponYn": false,
+            "customerManageBenefitStatusTypeText": "적용중",
+            "hasBenefit": false
+        }
+    ],
+    "sortedHomeBenefits": [
+        {
+            "accountNo": 500025734,
+            "customerManageBenefitPolicyNo": 2362234,
+            "benefitPolicyName": "이지바이 소식알림 쿠폰 중복할인가능",
+            "benefitGroupSeq": 2156000,
+            "benefitKindType": "COUPON",
+            "customerManageBenefitType": "TALK_FRIEND",
+            "customerManageBenefitStatusType": "ON",
+            "repurchaseConditionType": "PRODUCT",
+            "useObjectType": "ACCOUNT",
+            "benefitUnitType": "PERCENT",
+            "benefitValue": 2,
+            "benefitStartDate": "2019-09-30T15:00:00.000+0000",
+            "couponPublicationNo": "2002825248",
+            "couponPublicationType": "DOWNLOAD",
+            "maxDiscountAmount": 10000,
+            "validPeriodType": "ISSUE_DATE",
+            "validityDay": 30,
+            "interestTypes": [
+                "TALK_TALK"
+            ],
+            "onlyInterest": false,
+            "couponKindType": "ORDER",
+            "couponItemDetailExposureYn": true,
+            "couponTalkExposureYn": true,
+            "usageConditionType": "ALL",
+            "membershipCouponYn": false,
+            "customerManageBenefitStatusTypeText": "적용중",
+            "hasBenefit": false
+        }
+    ]
+}

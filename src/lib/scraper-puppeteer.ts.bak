@@ -1,0 +1,290 @@
+import { chromium, Browser, Page, BrowserContext } from 'playwright';
+import { generateFingerprint } from "../lib/fingerprints";
+import { getBrowserPool } from "../lib/browserPool";
+import { BrowserFingerprint, ProxyConfig, ScraperOptions } from "../types";
+import { logger } from "../lib/logger";
+import { ScraperConfig } from "../config/scraper.config";
+
+/**
+ * Scraper - Anti-detection web scraper using Playwright
+ */
+export class Scraper {
+  private browser: Browser | null = null;
+  private context: BrowserContext | null = null;
+  private usingPooledBrowser: boolean = false; 
+  private proxyConfig: {
+    host: string;
+    port: number;
+    username?: string;
+    password?: string;
+  } | null = null;
+
+  private timezone: string = "Asia/Jakarta";
+  private languages: string[] = ["id-ID", "id", "en-US", "en"];
+  private fingerprint: BrowserFingerprint | null = null;
+
+
+  async initialize(options: ScraperOptions = {}): Promise<void> {
+    const fingerprint = generateFingerprint();
+    const proxy = options.proxy;
+    const timezone = options.timezone ?? "Asia/Seoul";
+    const languages = options.languages ?? [
+      "ko-KR",
+      "ko",
+      "en-US",
+      "id-ID",
+      "id",
+    ];
+
+    if (ScraperConfig.performance.enableBrowserPool) {
+      try {
+        const pool = getBrowserPool();
+        const pooled = await pool.acquire(proxy);
+        this.browser = pooled.browser;
+        this.usingPooledBrowser = true;
+        
+        if (pooled.proxy) {
+          this.proxyConfig = pooled.proxy;
+          logger.debug(`Acquired browser from pool with proxy ${pooled.proxy.host}:${pooled.proxy.port}`);
+        } else {
+          logger.debug('Acquired browser from pool (no proxy)');
+        }
+      } catch (error: any) {
+        logger.warn(`Failed to acquire pooled browser: ${error.message}, creating new browser`);
+      }
+    }
+    
+    if (!this.browser) {
+      this.browser = await Scraper.createBrowser(proxy);
+      this.usingPooledBrowser = false;
+      this.proxyConfig = proxy || null;
+    }
+    
+    this.timezone = timezone;
+    this.languages = languages;
+    this.fingerprint = fingerprint;
+  }
+
+  /**
+   * Create a new browser instance
+   * 
+   */
+  static async createBrowser(proxy: ProxyConfig | null = null): Promise<Browser> {
+    const launchOptions: any = {
+      headless: ScraperConfig.browser.headless,
+      args: [
+        "--no-sandbox",
+        "--ignore-certificate-errors",
+        "--ignore-certificate-errors-spki-list",
+        "--disable-web-security",
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--disable-dev-shm-usage",
+        "--disable-accelerated-2d-canvas",
+        "--disable-gpu",
+        "--disable-blink-features=AutomationControlled",
+        "--window-size=1920,1080",
+      ],
+      ignoreHTTPSErrors: true,
+      executablePath: "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    };
+
+
+    if (proxy) {
+      launchOptions.args.push(
+        `--proxy-server=http://${proxy.host}:${proxy.port}`,
+      );
+      logger.info(`Creating browser with proxy: ${proxy.host}:${proxy.port}`);
+    } else {
+      logger.info("Creating browser without proxy");
+    }
+
+    try {
+      // Launch with puppeteer-extra (includes stealth plugin)
+      const browser = await puppeteer.launch(launchOptions);
+      logger.info("Browser created successfully");
+      return browser;
+    } catch (error: any) {
+      logger.error(`Failed to launch browser: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Create a new page with additional anti-detection measures
+   */
+  protected async createPage(): Promise<Page> {
+    if (!this.browser) {
+      throw new Error("Browser not initialized. Call initialize() first.");
+    }
+
+    const page = await this.browser.newPage();
+
+    
+    page.setDefaultNavigationTimeout(120000); 
+    page.setDefaultTimeout(120000); 
+
+    // Authenticate proxy if credentials are available
+    if (this.proxyConfig?.username && this.proxyConfig?.password) {
+      await page.authenticate({
+        username: this.proxyConfig.username,
+        password: this.proxyConfig.password,
+      });
+    }
+
+    // Set user agent from fingerprint
+    await page.setUserAgent(this.fingerprint!.userAgent);
+
+    // Set viewport from fingerprint
+    await page.setViewport({
+      width: this.fingerprint!.viewport.width,
+      height: this.fingerprint!.viewport.height,
+    });
+
+    // Set extra HTTP headers for Naver compatibility
+    await page.setExtraHTTPHeaders({
+      "accept-language": `${this.fingerprint!.locale},en-US;q=0.9,en;q=0.8`,
+      "x-client-version": new Date().toISOString().replace(/[-:T.]/g, "").slice(0, 14), // YYYYMMDDHHMMSS
+    });
+
+    // Advanced stealth measures - pass fingerprint data into browser context
+    const fingerprintData = {
+      languages: this.languages,
+      locale: this.fingerprint!.locale,
+      timezone: this.timezone,
+      platform: this.fingerprint!.userAgent.includes('Win') ? 'Win32' : 
+                this.fingerprint!.userAgent.includes('Mac') ? 'MacIntel' : 
+                this.fingerprint!.userAgent.includes('Linux') ? 'Linux x86_64' : 'Win32',
+      hardwareConcurrency: Math.floor(Math.random() * 8) + 4, // 4-12 cores
+      deviceMemory: [2, 4, 8, 16][Math.floor(Math.random() * 4)], // Random realistic memory
+    };
+
+    await page.evaluateOnNewDocument((fp) => {
+      // Override navigator properties
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => false,
+      });
+      
+      Object.defineProperty(navigator, 'languages', {
+        get: () => fp.languages,
+      });
+      
+      Object.defineProperty(navigator, 'platform', {
+        get: () => fp.platform,
+      });
+      
+      Object.defineProperty(navigator, 'hardwareConcurrency', {
+        get: () => fp.hardwareConcurrency,
+      });
+      
+      Object.defineProperty(navigator, 'deviceMemory', {
+        get: () => fp.deviceMemory,
+      });
+
+      // Chrome-specific properties
+      Object.defineProperty(navigator, 'chrome', {
+        get: () => ({
+          runtime: {},
+          loadTimes: function() {},
+          csi: function() {},
+          app: {},
+        }),
+      });
+
+      // Permissions override
+      const originalQuery = (window.navigator.permissions as any).query;
+      (window.navigator.permissions as any).query = (parameters: any) => (
+        parameters.name === 'notifications' ?
+          Promise.resolve({ state: (Notification as any).permission, onchange: null, addEventListener: () => {}, removeEventListener: () => {}, dispatchEvent: () => true, name: 'notifications' }) :
+          originalQuery(parameters)
+      );
+
+      // WebGL Vendor/Renderer spoofing
+      const getParameter = WebGLRenderingContext.prototype.getParameter;
+      WebGLRenderingContext.prototype.getParameter = function(parameter) {
+        if (parameter === 37445) {
+          return 'Intel Inc.';
+        }
+        if (parameter === 37446) {
+          return 'Intel Iris OpenGL Engine';
+        }
+        return getParameter.call(this, parameter);
+      };
+
+      // Plugin array
+      // Object.defineProperty(navigator, 'plugins', {
+      //   get: () => [
+      //     { name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer', description: 'Portable Document Format', length: 1 },
+      //     { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai', description: '', length: 1 },
+      //     { name: 'Native Client', filename: 'internal-nacl-plugin', description: '', length: 2 },
+      //   ],
+      // });
+
+      // Timezone override
+      const originalResolvedOptions = Intl.DateTimeFormat.prototype.resolvedOptions;
+      Intl.DateTimeFormat.prototype.resolvedOptions = function() {
+        const options = originalResolvedOptions.call(this);
+        options.timeZone = fp.timezone;
+        return options;
+      };
+
+      // Remove automation indicators
+      (navigator as any).__proto__.webdriver = false;
+      
+    }, fingerprintData);
+
+    return page;
+  }
+
+  /**
+   * Get proxy configuration for child classes
+   */
+  protected getProxyConfig() {
+    return this.proxyConfig;
+  }
+
+  /**
+   * Close browser or return to pool
+   */
+  async close(): Promise<void> {
+    if (this.browser) {
+      if (this.usingPooledBrowser) {
+        // Return browser to pool instead of closing
+        try {
+          const pool = getBrowserPool();
+          await pool.release(this.browser);
+          logger.debug("Browser returned to pool");
+        } catch (error) {
+          logger.warn("Failed to return browser to pool, closing instead");
+          await this.browser.close();
+        }
+      } else {
+        // Close owned browser
+        await this.browser.close();
+        logger.info("Browser closed");
+      }
+      this.browser = null;
+      this.usingPooledBrowser = false;
+    }
+  }
+
+  /**
+   * scroll down the page to load dynamic content
+   */
+  protected async autoScroll(page: Page): Promise<void> {
+    await page.evaluate(async () => {
+      await new Promise<void>((resolve) => {
+        let totalHeight = 0;
+        const distance = 100;
+        const timer = setInterval(() => {
+          const scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 100);
+      });
+    });
+  }
+}

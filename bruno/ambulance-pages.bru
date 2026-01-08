@@ -1,0 +1,38 @@
+meta {
+  name: ambulance/pages
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://smartstore.naver.com/i/v1/ambulance/pages
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Accept-Language: en-US,en;q=0.9
+  Connection: keep-alive
+  Content-Type: application/json
+  Cookie: _fwb=102YCJLKhznGfeTMxs1hpeY.1767686142559; NAC=gJpvB4wz8PC5
+  Referer: https://smartstore.naver.com/ezbuy/products/5836562085
+  Sec-Fetch-Dest: empty
+  Sec-Fetch-Mode: cors
+  Sec-Fetch-Site: same-origin
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0
+  x-client-version: 20260106075525
+}
+
+body:json {
+  {
+    "path": "/ezbuy/products/5836562085",
+    "pathType": "PRODUCT",
+    "isInitialRender": true,
+    "clientTime": "2026-01-06T07:55:59.185Z"
+  }
+}
+
+settings {
+  encodeUrl: false
+}
