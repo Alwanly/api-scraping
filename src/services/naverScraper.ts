@@ -7,9 +7,6 @@ import * as path from "path";
  * NaverScraper - Naver SmartStore specific scraper
  */
 export class NaverScraper extends Scraper {
-  /**
-   * Extract channelUid from the product page
-   */
 
   static folderLogScreenshots = path.join(__dirname, "../../logs/screenshots");
 

@@ -146,7 +146,6 @@ export class ProxyManager {
       }
     }
 
-    // If all proxies are in cooldown, return the least recently used one
     logger.warn('All proxies in cooldown, using least recently used');
     return this.getLeastRecentlyUsedProxy();
   }

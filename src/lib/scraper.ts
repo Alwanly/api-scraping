@@ -1,6 +1,5 @@
-import { chromium, Browser, Page, BrowserContext, firefox } from 'playwright';
+import { chromium, Browser, Page, BrowserContext, firefox } from "playwright";
 import { generateFingerprint } from "../lib/fingerprints";
-import { getBrowserPool } from "../lib/browserPool";
 import { BrowserFingerprint, ProxyConfig, ScraperOptions } from "../types";
 import { logger } from "../lib/logger";
 import { ScraperConfig } from "../config/scraper.config";
@@ -30,30 +29,12 @@ export class Scraper {
       "id",
     ];
 
-    if (ScraperConfig.performance.enableBrowserPool) {
-      try {
-        const pool = getBrowserPool();
-        const pooled = await pool.acquire(proxy);
-        this.browser = pooled.browser as any;
-        this.usingPooledBrowser = true;
-        
-        if (pooled.proxy) {
-          this.proxyConfig = pooled.proxy;
-          logger.debug(`Acquired browser from pool with proxy ${pooled.proxy.host}:${pooled.proxy.port}`);
-        } else {
-          logger.debug('Acquired browser from pool (no proxy)');
-        }
-      } catch (error: any) {
-        logger.warn(`Failed to acquire pooled browser: ${error.message}, creating new browser`);
-      }
-    }
-    
     if (!this.browser) {
       this.browser = await Scraper.createBrowser(proxy);
       this.usingPooledBrowser = false;
       this.proxyConfig = proxy || null;
     }
-    
+
     this.timezone = timezone;
     this.languages = languages;
     this.fingerprint = fingerprint;
@@ -63,7 +44,9 @@ export class Scraper {
    * Create a new browser instance with Playwright
    * Configured with realistic TLS fingerprint via browser args
    */
-  static async createBrowser(proxy: ProxyConfig | null = null): Promise<Browser> {
+  static async createBrowser(
+    proxy: ProxyConfig | null = null,
+  ): Promise<Browser> {
     const launchOptions: any = {
       headless: ScraperConfig.browser.headless,
       args: [
@@ -79,25 +62,26 @@ export class Scraper {
         "--disable-features=IsolateOrigins,site-per-process",
         "--disable-site-isolation-trials",
         "--disable-features=BlockInsecurePrivateNetworkRequests",
-        "--lang=ko-KR",
-        "--window-size=1920,1080",
-        // TLS/SSL optimizations for realistic fingerprint
         "--cipher-suite-blacklist=0x0004,0x0005,0x0007,0xc011,0xc007",
         "--enable-features=NetworkService,NetworkServiceInProcess",
-        // Additional stealth
         "--disable-infobars",
         "--disable-background-timer-throttling",
         "--disable-backgrounding-occluded-windows",
         "--disable-renderer-backgrounding",
       ],
       ignoreHTTPSErrors: true,
-      ignoreDefaultArgs: ['--enable-automation', '--enable-blink-features=AutomationControlled'],
+      ignoreDefaultArgs: [
+        "--enable-automation",
+        "--enable-blink-features=AutomationControlled",
+      ],
     };
 
-    // Use custom executable path only if explicitly set (for Docker/Alpine Linux)
     if (process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH) {
-      launchOptions.executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
-      logger.info(`Using custom Chromium: ${process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH}`);
+      launchOptions.executablePath =
+        process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+      logger.info(
+        `Using custom Chromium: ${process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH}`,
+      );
     }
 
     // Configure proxy for Playwright
@@ -130,23 +114,26 @@ export class Scraper {
       throw new Error("Browser not initialized. Call initialize() first.");
     }
 
-    // Create context with fingerprint if not exists
     if (!this.context) {
       const fingerprintData = {
         languages: this.languages,
         locale: this.fingerprint!.locale,
         timezone: this.timezone,
-        platform: this.fingerprint!.userAgent.includes('Win') ? 'Windows' : 
-                  this.fingerprint!.userAgent.includes('Mac') ? 'MacIntel' : 
-                  this.fingerprint!.userAgent.includes('Linux') ? 'Linux x86_64' : 'Win32',
+        platform: this.fingerprint!.userAgent.includes("Win")
+          ? "Windows"
+          : this.fingerprint!.userAgent.includes("Mac")
+          ? "MacIntel"
+          : this.fingerprint!.userAgent.includes("Linux")
+          ? "Linux x86_64"
+          : "Win32",
         hardwareConcurrency: Math.floor(Math.random() * 8) + 4,
         deviceMemory: [2, 4, 8, 16][Math.floor(Math.random() * 4)],
       };
 
       // Build dynamic accept-language header from languages array
       const acceptLanguage = this.languages
-        .map((lang, idx) => idx === 0 ? lang : `${lang};q=0.${9 - idx}`)
-        .join(',');
+        .map((lang, idx) => (idx === 0 ? lang : `${lang};q=0.${9 - idx}`))
+        .join(",");
 
       this.context = await this.browser.newContext({
         userAgent: this.fingerprint!.userAgent,
@@ -158,76 +145,72 @@ export class Scraper {
         timezoneId: this.timezone,
         permissions: [],
         geolocation: undefined,
-        colorScheme: 'light',
+        colorScheme: "light",
         extraHTTPHeaders: {
-          'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-          'accept-language': acceptLanguage,
-          'accept-encoding': 'gzip, deflate, br, zstd',
-          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-          'sec-ch-ua-mobile': '?0',
-          'sec-ch-ua-platform': `"${fingerprintData.platform}"`,
-          'sec-fetch-dest': 'document',
-          'sec-fetch-mode': 'navigate',
-          'sec-fetch-site': 'none',
-          'sec-fetch-user': '?1',
-          'upgrade-insecure-requests': '1',
+          "accept-language": acceptLanguage,
+          "sec-ch-ua-platform": `"${fingerprintData.platform}"`,
         },
         ignoreHTTPSErrors: true,
         javaScriptEnabled: true,
         hasTouch: false,
         isMobile: false,
-        serviceWorkers: 'block',
+        serviceWorkers: "block",
       });
 
       // Add init scripts for anti-detection
       await this.context.addInitScript((fp: any) => {
         // Override navigator.webdriver
-        Object.defineProperty(navigator, 'webdriver', {
+        Object.defineProperty(navigator, "webdriver", {
           get: () => undefined,
         });
-        
-        Object.defineProperty(navigator, 'languages', {
+
+        Object.defineProperty(navigator, "languages", {
           get: () => fp.languages,
         });
-        
-        Object.defineProperty(navigator, 'platform', {
+
+        Object.defineProperty(navigator, "platform", {
           get: () => fp.platform,
         });
-        
-        Object.defineProperty(navigator, 'hardwareConcurrency', {
+
+        Object.defineProperty(navigator, "hardwareConcurrency", {
           get: () => fp.hardwareConcurrency,
         });
-        
-        Object.defineProperty(navigator, 'deviceMemory', {
+
+        Object.defineProperty(navigator, "deviceMemory", {
           get: () => fp.deviceMemory,
         });
 
         // Chrome-specific properties
-        Object.defineProperty(navigator, 'chrome', {
+        Object.defineProperty(navigator, "chrome", {
           get: () => ({
             runtime: {},
-            loadTimes: function() {},
-            csi: function() {},
+            loadTimes: function () {},
+            csi: function () {},
             app: {},
           }),
         });
 
         // Override permissions - flexible based on browser
         const originalQuery = window.navigator.permissions.query;
-        window.navigator.permissions.query = (parameters: any) => (
-          parameters.name === 'notifications' ?
-            Promise.resolve({ state: Notification.permission } as PermissionStatus) :
-            originalQuery(parameters)
-        );
+        window.navigator.permissions.query = (parameters: any) =>
+          parameters.name === "notifications"
+            ? Promise.resolve({
+                state: Notification.permission,
+              } as PermissionStatus)
+            : originalQuery(parameters);
 
         // WebGL Vendor/Renderer spoofing - dynamic based on platform
         const getParameter = WebGLRenderingContext.prototype.getParameter;
-        WebGLRenderingContext.prototype.getParameter = function(parameter: any) {
+        WebGLRenderingContext.prototype.getParameter = function (
+          parameter: any,
+        ) {
           if (parameter === 37445) {
-            return fp.platform.includes('Mac') ? 'Apple Inc.' : 'Intel Inc.';
+            return fp.platform.includes("Mac") ? "Apple Inc." : "Intel Inc.";
           }
           if (parameter === 37446) {
-            return fp.platform.includes('Mac') ? 'Apple M1' : 'Intel Iris OpenGL Engine';
+            return fp.platform.includes("Mac")
+              ? "Apple M1"
+              : "Intel Iris OpenGL Engine";
           }
           return getParameter.call(this, parameter);
         };
@@ -245,16 +228,11 @@ export class Scraper {
         delete (window.document as any).__driver_unwrapped;
         delete (window.document as any).__fxdriver_unwrapped;
         delete (window.document as any).__selenium_evaluate;
-        
-        // Override plugins to look real - dynamic based on platform
-        Object.defineProperty(navigator, 'plugins', {
-          get: () => fp.platform.includes('Win') ? [1, 2, 3, 4, 5] : [1, 2, 3],
-        });
       }, fingerprintData);
     }
 
     const page = await this.context.newPage();
-    
+
     // Set default timeouts
     page.setDefaultNavigationTimeout(120000);
     page.setDefaultTimeout(120000);
@@ -280,21 +258,8 @@ export class Scraper {
     }
 
     if (this.browser) {
-      if (this.usingPooledBrowser) {
-        // Return browser to pool instead of closing
-        try {
-          const pool = getBrowserPool();
-          await pool.release(this.browser as any);
-          logger.debug("Browser returned to pool");
-        } catch (error) {
-          logger.warn("Failed to return browser to pool, closing instead");
-          await this.browser.close();
-        }
-      } else {
-        // Close owned browser
-        await this.browser.close();
-        logger.info("Browser closed");
-      }
+      await this.browser.close();
+      logger.info("Browser closed");
       this.browser = null;
       this.usingPooledBrowser = false;
     }
