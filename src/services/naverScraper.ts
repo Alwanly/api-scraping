@@ -60,6 +60,17 @@ export class NaverScraper extends Scraper {
 
       page.on("response", captchaListener);
 
+      // Add random mouse movements for human-like behavior
+      const addHumanBehavior = async () => {
+        await randomDelay(500, 1500);
+        // Random mouse movement
+        await page.mouse.move(
+          Math.floor(Math.random() * 800) + 100,
+          Math.floor(Math.random() * 600) + 100
+        );
+        await randomDelay(200, 800);
+      };
+
       // Race between captcha detection and API responses
       const [productDetailResponse, benefitsResponse] = await Promise.race([
         captchaPromise,
@@ -76,10 +87,13 @@ export class NaverScraper extends Scraper {
               response.status() === 200,
             { timeout: 60000 },
           ),
-          page.goto(url, {
-            waitUntil: "domcontentloaded",
-            timeout: 45000 * 2,
-          }),
+          (async () => {
+            await addHumanBehavior();
+            return page.goto(url, {
+              waitUntil: "domcontentloaded",
+              timeout: 45000 * 2,
+            });
+          })(),
         ]),
       ]);
 

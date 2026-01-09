@@ -61,11 +61,11 @@ export class Scraper {
 
   /**
    * Create a new browser instance with Playwright
+   * Configured with realistic TLS fingerprint via browser args
    */
   static async createBrowser(proxy: ProxyConfig | null = null): Promise<Browser> {
     const launchOptions: any = {
       headless: ScraperConfig.browser.headless,
-      executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || '/usr/bin/chromium-browser',
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
@@ -75,9 +75,30 @@ export class Scraper {
         "--disable-software-rasterizer",
         "--disable-crashpad",
         "--disable-crash-reporter",
+        "--disable-web-security",
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--disable-site-isolation-trials",
+        "--disable-features=BlockInsecurePrivateNetworkRequests",
+        "--lang=ko-KR",
+        "--window-size=1920,1080",
+        // TLS/SSL optimizations for realistic fingerprint
+        "--cipher-suite-blacklist=0x0004,0x0005,0x0007,0xc011,0xc007",
+        "--enable-features=NetworkService,NetworkServiceInProcess",
+        // Additional stealth
+        "--disable-infobars",
+        "--disable-background-timer-throttling",
+        "--disable-backgrounding-occluded-windows",
+        "--disable-renderer-backgrounding",
       ],
       ignoreHTTPSErrors: true,
+      ignoreDefaultArgs: ['--enable-automation', '--enable-blink-features=AutomationControlled'],
     };
+
+    // Use custom executable path only if explicitly set (for Docker/Alpine Linux)
+    if (process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH) {
+      launchOptions.executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+      logger.info(`Using custom Chromium: ${process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH}`);
+    }
 
     // Configure proxy for Playwright
     if (proxy) {
@@ -122,6 +143,11 @@ export class Scraper {
         deviceMemory: [2, 4, 8, 16][Math.floor(Math.random() * 4)],
       };
 
+      // Build dynamic accept-language header from languages array
+      const acceptLanguage = this.languages
+        .map((lang, idx) => idx === 0 ? lang : `${lang};q=0.${9 - idx}`)
+        .join(',');
+
       this.context = await this.browser.newContext({
         userAgent: this.fingerprint!.userAgent,
         viewport: {
@@ -134,16 +160,30 @@ export class Scraper {
         geolocation: undefined,
         colorScheme: 'light',
         extraHTTPHeaders: {
-          'accept-language': `${this.fingerprint!.locale}`,
+          'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+          'accept-language': acceptLanguage,
+          'accept-encoding': 'gzip, deflate, br, zstd',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': `"${fingerprintData.platform}"`,
+          'sec-fetch-dest': 'document',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-site': 'none',
+          'sec-fetch-user': '?1',
+          'upgrade-insecure-requests': '1',
         },
         ignoreHTTPSErrors: true,
+        javaScriptEnabled: true,
+        hasTouch: false,
+        isMobile: false,
+        serviceWorkers: 'block',
       });
 
       // Add init scripts for anti-detection
       await this.context.addInitScript((fp: any) => {
-        // Override navigator properties
+        // Override navigator.webdriver
         Object.defineProperty(navigator, 'webdriver', {
-          get: () => false,
+          get: () => undefined,
         });
         
         Object.defineProperty(navigator, 'languages', {
@@ -172,21 +212,44 @@ export class Scraper {
           }),
         });
 
-        // WebGL Vendor/Renderer spoofing
+        // Override permissions - flexible based on browser
+        const originalQuery = window.navigator.permissions.query;
+        window.navigator.permissions.query = (parameters: any) => (
+          parameters.name === 'notifications' ?
+            Promise.resolve({ state: Notification.permission } as PermissionStatus) :
+            originalQuery(parameters)
+        );
+
+        // WebGL Vendor/Renderer spoofing - dynamic based on platform
         const getParameter = WebGLRenderingContext.prototype.getParameter;
         WebGLRenderingContext.prototype.getParameter = function(parameter: any) {
           if (parameter === 37445) {
-            return 'Intel Inc.';
+            return fp.platform.includes('Mac') ? 'Apple Inc.' : 'Intel Inc.';
           }
           if (parameter === 37446) {
-            return 'Intel Iris OpenGL Engine';
+            return fp.platform.includes('Mac') ? 'Apple M1' : 'Intel Iris OpenGL Engine';
           }
           return getParameter.call(this, parameter);
         };
 
         // Remove automation indicators
-        (window.navigator as any).webdriver = false;
+        delete (window.navigator as any).webdriver;
+        delete (window as any).__nightmare;
+        delete (window.document as any).__selenium_unwrapped;
+        delete (window.document as any).__webdriver_evaluate;
+        delete (window.document as any).__driver_evaluate;
+        delete (window.document as any).__webdriver_script_function;
+        delete (window.document as any).__webdriver_script_func;
+        delete (window.document as any).__webdriver_script_fn;
+        delete (window.document as any).__fxdriver_evaluate;
+        delete (window.document as any).__driver_unwrapped;
+        delete (window.document as any).__fxdriver_unwrapped;
+        delete (window.document as any).__selenium_evaluate;
         
+        // Override plugins to look real - dynamic based on platform
+        Object.defineProperty(navigator, 'plugins', {
+          get: () => fp.platform.includes('Win') ? [1, 2, 3, 4, 5] : [1, 2, 3],
+        });
       }, fingerprintData);
     }
 

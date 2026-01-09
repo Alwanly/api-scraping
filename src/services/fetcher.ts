@@ -28,37 +28,31 @@ let totalErrors = 0;
 let totalLatency = 0;
 
 /**
- * Fetch with retry and exponential backoff
- * Special handling for CAPTCHA - immediate proxy rotation
+ * Fetch with retry and immediate proxy rotation
+ * Failed proxy is put in cooldown, next attempt uses different proxy immediately
  */
 async function fetchWithRetry<T>(
-  fetchFn: () => Promise<T>,
+  fetchFn: (attemptNumber: number) => Promise<T>,
   retries = 3,
 ): Promise<T> {
   let attempt = 0;
   let lastError: any;
 
   while (attempt < retries) {
+    attempt++;
+    
     try {
-      return await fetchFn();
+      return await fetchFn(attempt);
     } catch (error: any) {
       lastError = error;
-      attempt++;
       
       const isCaptcha = error.message?.includes("captcha");
       const is429 = error.message?.includes("429");
       const is490 = error.message?.includes("490");
       const isBlocked = isCaptcha || is429 || is490 || error.message?.includes("Service access");
 
-      // CRITICAL: Don't retry on CAPTCHA - need to rotate proxy and wait
-      if (isCaptcha && ScraperConfig.retry.skipOnCaptcha) {
-        logger.error(`CAPTCHA detected - stopping retries. Need proxy rotation and long wait.`);
-        throw error; // Throw immediately to trigger proxy rotation at higher level
-      }
-
-      logger.warn("Fetch attempt failed", { 
+      logger.warn(`Attempt ${attempt}/${retries} failed`, { 
         error: String(error), 
-        attempt,
         isCaptcha,
         is429,
         is490,
@@ -66,25 +60,19 @@ async function fetchWithRetry<T>(
       });
       
       if (attempt >= retries) {
+        logger.error(`All ${retries} attempts failed for request`);
         throw error;
       }
 
-      // Calculate backoff - much longer for blocking
-      const baseBackoff = isBlocked ? ScraperConfig.retry.backoffBase : 3000;
-      const maxBackoff = isBlocked ? ScraperConfig.retry.backoffMax : 30000;
-      const backoffTime = Math.min(
-        baseBackoff * Math.pow(2, attempt) + Math.random() * 5000,
-        maxBackoff,
+      // Short delay before next attempt (proxy already rotated automatically)
+      // No long backoff needed since we're using a different proxy
+      const rotationDelay = isBlocked ? 2000 : 1000; // 1-2s just to avoid hammering
+      
+      logger.info(
+        `Rotating to new proxy in ${rotationDelay / 1000}s (failed proxy now in cooldown)`,
       );
 
-      logger.warn(
-        `Retrying attempt ${attempt}/${retries}${
-          isBlocked ? " (BLOCKED - rotating proxy)" : ""
-        } in ${Math.round(backoffTime / 1000)}s`,
-        { error: String(error), attempt, isBlocked },
-      );
-
-      await new Promise((resolve) => setTimeout(resolve, backoffTime));
+      await new Promise((resolve) => setTimeout(resolve, rotationDelay));
     }
   }
 
@@ -150,16 +138,21 @@ export async function fetchNaverProduct(
         ScraperConfig.delays.beforeRequest.max
       );
 
-      return await fetchWithRetry(async () => {
+      return await fetchWithRetry(async (attemptNumber: number) => {
         const scraper = new NaverScraper();
         let currentProxy = null;
 
         try {
           if (!ScraperConfig.performance.enableBrowserPool) {
+            // Get a new healthy proxy for each attempt (automatic rotation on retry)
             currentProxy = proxyManager.getHealthyProxy();
-            logger.info(
-              `Using proxy: ${currentProxy?.host}:${currentProxy?.port}`,
-            );
+            if (currentProxy) {
+              logger.info(
+                `[Attempt ${attemptNumber}] Using proxy: ${currentProxy.host}:${currentProxy.port}`,
+              );
+            } else {
+              logger.warn(`[Attempt ${attemptNumber}] No proxy available`);
+            }
           } else {
             logger.debug('Using browser pool (browsers already have proxies)');
           }
@@ -179,34 +172,25 @@ export async function fetchNaverProduct(
 
           if (currentProxy) {
             proxyManager.markProxySuccess(currentProxy);
+            logger.info(`Proxy ${currentProxy.host}:${currentProxy.port} succeeded`);
           }
 
           return data;
         } catch (error: any) {
           const isCaptcha = error.message?.includes("captcha");
+          const is429 = error.message?.includes("429");
+          const is490 = error.message?.includes("490");
           
-          // Mark proxy as failed
+          // Immediately mark proxy as failed to put it in cooldown
           if (currentProxy) {
-            proxyManager.markProxyFailed(currentProxy);
-            
-            // On CAPTCHA, increase failure count more aggressively
-            if (isCaptcha && ScraperConfig.proxy.rotateOnCaptcha) {
-              logger.error(`CAPTCHA detected on proxy ${currentProxy.host}:${currentProxy.port} - will be rotated`);
-              // Mark failed multiple times to trigger cooldown faster
+            // On CAPTCHA or blocking, mark failed multiple times for longer cooldown
+            if (isCaptcha || is429 || is490) {
+              logger.error(`Proxy ${currentProxy.host}:${currentProxy.port} BLOCKED (${isCaptcha ? 'CAPTCHA' : is429 ? '429' : '490'}) - putting in cooldown`);
               proxyManager.markProxyFailed(currentProxy);
+            } else {
+              logger.warn(`Proxy ${currentProxy.host}:${currentProxy.port} failed - marking for rotation`);
               proxyManager.markProxyFailed(currentProxy);
             }
-          }
-          
-          // If CAPTCHA, add extra delay before rethrowing
-          if (isCaptcha) {
-            const captchaDelay = Math.floor(
-              Math.random() * 
-              (ScraperConfig.delays.afterCaptcha.max - ScraperConfig.delays.afterCaptcha.min) +
-              ScraperConfig.delays.afterCaptcha.min
-            );
-            logger.warn(`CAPTCHA detected - waiting ${Math.round(captchaDelay / 1000)}s before continuing`);
-            await new Promise(resolve => setTimeout(resolve, captchaDelay));
           }
           
           throw error;

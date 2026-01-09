@@ -12,11 +12,11 @@
 export const ScraperConfig = {
   // Rate Limiting - SLOWER to avoid CAPTCHA
   delays: {
-    beforeRequest: { min: 8000, max: 15000 },     // 8-15 seconds (more human-like)
-    betweenPages: { min: 10000, max: 20000 },     // 10-20 seconds between products
-    afterError: { min: 30000, max: 60000 },       // 30-60 seconds after error (avoid pattern detection)
-    afterCaptcha: { min: 120000, max: 300000 },   // 2-5 minutes after CAPTCHA detection
-    scrollDelay: { min: 1000, max: 3000 },        // 1-3 seconds during scrolling (more natural)
+    beforeRequest: { min: 15000, max: 30000 },    // 15-30 seconds (very human-like)
+    betweenPages: { min: 20000, max: 40000 },     // 20-40 seconds between products
+    afterError: { min: 45000, max: 90000 },       // 45-90 seconds after error
+    afterCaptcha: { min: 180000, max: 360000 },   // 3-6 minutes after CAPTCHA detection
+    scrollDelay: { min: 1500, max: 4000 },        // 1.5-4 seconds during scrolling
   },
 
   // Retry Configuration
@@ -44,7 +44,7 @@ export const ScraperConfig = {
 
   // Browser Configuration  
   browser: {
-    headless: true,                               // Headless mode for better performance
+    headless: false,                              // NON-HEADLESS for better stealth (headless is easily detected)
     timeout: 120000,                              // 2 minute timeout
     viewportRotation: true,                       // Rotate viewport sizes
     poolSize: 2,                                  // Number of browser instances in pool
