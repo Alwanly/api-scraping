@@ -72,7 +72,9 @@ export class Scraper {
         "--disable-dev-shm-usage",
         "--disable-blink-features=AutomationControlled",
         "--disable-gpu",
-        "--single-process",
+        "--disable-software-rasterizer",
+        "--disable-crashpad",
+        "--disable-crash-reporter",
       ],
       ignoreHTTPSErrors: true,
     };
