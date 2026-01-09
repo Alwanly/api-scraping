@@ -72,7 +72,6 @@ export class Scraper {
         "--disable-blink-features=AutomationControlled",
       ],
       ignoreHTTPSErrors: true,
-      channel: 'msedge', // Use Edge browser
     };
 
     // Configure proxy for Playwright
