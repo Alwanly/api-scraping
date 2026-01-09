@@ -44,7 +44,7 @@ export const ScraperConfig = {
 
   // Browser Configuration  
   browser: {
-    headless: false,                              // NON-HEADLESS for better stealth (headless is easily detected)
+    headless: true,                              // NON-HEADLESS for better stealth (headless is easily detected)
     timeout: 120000,                              // 2 minute timeout
     viewportRotation: true,                       // Rotate viewport sizes
     poolSize: 2,                                  // Number of browser instances in pool
@@ -55,7 +55,7 @@ export const ScraperConfig = {
     enableCache: true,                            // Use Redis cache (CRITICAL)
     cacheTTL: 7200,                               // 2 hours cache TTL
     enableMetrics: true,                          // Track performance metrics
-    enableBrowserPool: false,                      // Browser pooling (eliminates cold start)
+    enableBrowserPool: true,                      // Browser pooling (eliminates cold start)
   },
 };
 
