@@ -65,11 +65,14 @@ export class Scraper {
   static async createBrowser(proxy: ProxyConfig | null = null): Promise<Browser> {
     const launchOptions: any = {
       headless: ScraperConfig.browser.headless,
+      executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || '/usr/bin/chromium-browser',
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-blink-features=AutomationControlled",
+        "--disable-gpu",
+        "--single-process",
       ],
       ignoreHTTPSErrors: true,
     };
