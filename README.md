@@ -17,7 +17,6 @@ A scalable, undetectable web scraping API for Naver SmartStore product data. Bui
 - Node.js 16+
 - Redis server
 - pnpm (or npm/yarn)
-- self-host
 
 ## 🛠️ Installation
 
@@ -153,24 +152,6 @@ curl "http://localhost:3000/naver?productUrl=https://smartstore.naver.com/rainbo
   }
 }
 ```
-
-### 3. Metrics
-
-**Endpoint:** `GET /metrics`
-
-**Example Response:**
-```json
-{
-  "totalRequests": 150,
-  "totalErrors": 3,
-  "errorRate": 2.0,
-  "averageLatency": 4234
-}
-```
-
-### 4. Reset Metrics
-
-**Endpoint:** `POST /metrics/reset`
 
 ## 🕵️ Anti-Detection Strategies
 
@@ -314,24 +295,7 @@ api-scrapping/
 └── README.md
 ```
 
-## 🔐 Security Notes
-
-- Never commit `.env` file to version control
-- Rotate proxy credentials regularly
-- Use HTTPS in production
-- Implement rate limiting per IP in production
-- Monitor for unusual patterns
 
 ## 👨‍💻 Author
 
 Built for Naver SmartStore scraping challenge.
-
-## 🆘 Support
-
-For issues or questions:
-1. Check logs in console
-2. Verify Redis connection
-3. Test proxy connectivity
-4. Review metrics endpoint
-
----

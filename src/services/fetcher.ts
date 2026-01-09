@@ -6,6 +6,10 @@ import { randomDelay } from "../lib/fingerprints";
 import { proxyManager } from "../lib/proxyManager";
 import { NaverScraper } from "./naverScraper";
 import { ScraperConfig } from "../config/scraper.config";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 // Redis client
 const redis = new Redis(process.env.REDIS_URL || "redis://localhost:6379");
@@ -40,25 +44,29 @@ async function fetchWithRetry<T>(
 
   while (attempt < retries) {
     attempt++;
-    
+
     try {
       return await fetchFn(attempt);
     } catch (error: any) {
       lastError = error;
-      
+
       const isCaptcha = error.message?.includes("captcha");
       const is429 = error.message?.includes("429");
       const is490 = error.message?.includes("490");
-      const isBlocked = isCaptcha || is429 || is490 || error.message?.includes("Service access");
+      const isBlocked =
+        isCaptcha ||
+        is429 ||
+        is490 ||
+        error.message?.includes("Service access");
 
-      logger.warn(`Attempt ${attempt}/${retries} failed`, { 
-        error: String(error), 
+      logger.warn(`Attempt ${attempt}/${retries} failed`, {
+        error: String(error),
         isCaptcha,
         is429,
         is490,
-        isBlocked 
+        isBlocked,
       });
-      
+
       if (attempt >= retries) {
         logger.error(`All ${retries} attempts failed for request`);
         throw error;
@@ -67,9 +75,11 @@ async function fetchWithRetry<T>(
       // Short delay before next attempt (proxy already rotated automatically)
       // No long backoff needed since we're using a different proxy
       const rotationDelay = isBlocked ? 2000 : 1000; // 1-2s just to avoid hammering
-      
+
       logger.info(
-        `Rotating to new proxy in ${rotationDelay / 1000}s (failed proxy now in cooldown)`,
+        `Rotating to new proxy in ${
+          rotationDelay / 1000
+        }s (failed proxy now in cooldown)`,
       );
 
       await new Promise((resolve) => setTimeout(resolve, rotationDelay));
@@ -114,7 +124,7 @@ async function cacheProduct(
 }
 
 /**
- * Fetch Naver product data 
+ * Fetch Naver product data
  */
 export async function fetchNaverProduct(
   url: string,
@@ -135,7 +145,7 @@ export async function fetchNaverProduct(
       // Longer delay to appear more human-like and avoid CAPTCHA
       await randomDelay(
         ScraperConfig.delays.beforeRequest.min,
-        ScraperConfig.delays.beforeRequest.max
+        ScraperConfig.delays.beforeRequest.max,
       );
 
       return await fetchWithRetry(async (attemptNumber: number) => {
@@ -154,10 +164,9 @@ export async function fetchNaverProduct(
               logger.warn(`[Attempt ${attemptNumber}] No proxy available`);
             }
           } else {
-            logger.debug('Using browser pool (browsers already have proxies)');
+            logger.debug("Using browser pool (browsers already have proxies)");
           }
 
-          
           await scraper.initialize({
             proxy: currentProxy || undefined,
             timezone: "Asia/Seoul",
@@ -172,7 +181,9 @@ export async function fetchNaverProduct(
 
           if (currentProxy) {
             proxyManager.markProxySuccess(currentProxy);
-            logger.info(`Proxy ${currentProxy.host}:${currentProxy.port} succeeded`);
+            logger.info(
+              `Proxy ${currentProxy.host}:${currentProxy.port} succeeded`,
+            );
           }
 
           return data;
@@ -180,19 +191,25 @@ export async function fetchNaverProduct(
           const isCaptcha = error.message?.includes("captcha");
           const is429 = error.message?.includes("429");
           const is490 = error.message?.includes("490");
-          
+
           // Immediately mark proxy as failed to put it in cooldown
           if (currentProxy) {
             // On CAPTCHA or blocking, mark failed multiple times for longer cooldown
             if (isCaptcha || is429 || is490) {
-              logger.error(`Proxy ${currentProxy.host}:${currentProxy.port} BLOCKED (${isCaptcha ? 'CAPTCHA' : is429 ? '429' : '490'}) - putting in cooldown`);
+              logger.error(
+                `Proxy ${currentProxy.host}:${currentProxy.port} BLOCKED (${
+                  isCaptcha ? "CAPTCHA" : is429 ? "429" : "490"
+                }) - putting in cooldown`,
+              );
               proxyManager.markProxyFailed(currentProxy);
             } else {
-              logger.warn(`Proxy ${currentProxy.host}:${currentProxy.port} failed - marking for rotation`);
+              logger.warn(
+                `Proxy ${currentProxy.host}:${currentProxy.port} failed - marking for rotation`,
+              );
               proxyManager.markProxyFailed(currentProxy);
             }
           }
-          
+
           throw error;
         } finally {
           await scraper.close();
