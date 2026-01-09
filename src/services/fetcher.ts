@@ -214,7 +214,7 @@ export async function fetchNaverProduct(
         } finally {
           await scraper.close();
         }
-      }, 5);
+      }, 3);
     });
 
     const latency = Date.now() - startTime;
