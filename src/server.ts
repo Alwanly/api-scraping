@@ -4,7 +4,7 @@ import { parseSmartStoreUrl } from "./lib/parseURL";
 import * as fetcher from "./services/fetcher";
 import { logger } from "./lib/logger";
 import { ScraperConfig } from "./config/scraper.config";
-import { proxyManager } from "./lib/proxyManager";
+import { proxyManager } from "./lib/proxy/proxyManager";
 import { Scraper } from "./lib/scraper";
 
 dotenv.config();
@@ -68,7 +68,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
   logger.info(`Health check: http://localhost:${PORT}/health`);
-  logger.info(`Metrics: http://localhost:${PORT}/metrics`);
 });
 
 // Graceful shutdown

@@ -1,0 +1,25 @@
+meta {
+  name: Naver prod
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://api-scraping.dev-ally.net/naver?productUrl=https://smartstore.naver.com/minibeans/products/8768399445
+  body: none
+  auth: basic
+}
+
+params:query {
+  productUrl: https://smartstore.naver.com/minibeans/products/8768399445
+}
+
+auth:basic {
+  username: mrscraper
+  password: mrscraper
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
