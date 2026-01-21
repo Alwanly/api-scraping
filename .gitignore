@@ -11,3 +11,7 @@ logs/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# VS Code documentation (local notes)
+.vscode/doc/
+data/*

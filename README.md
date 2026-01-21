@@ -1,84 +1,80 @@
 # Naver SmartStore API Scraper
 
-A scalable, undetectable web scraping API for Naver SmartStore product data. Built with TypeScript, Playwright, and advanced anti-detection techniques.
+A production-ready web scraping API for Naver SmartStore products with advanced browser management, proxy rotation, and anti-detection.
 
 ## 🚀 Features
 
-- **Anti-Detection**: Browser fingerprint rotation, realistic headers, random delays
-- **Proxy Support**: Rotating proxies with Korean IP targeting
-- **Rate Limiting**: Configurable request throttling to avoid detection
-- **Caching**: Redis-based caching to reduce redundant requests
-- **Monitoring**: Real-time metrics, health checks, and performance tracking
-- **Error Handling**: Exponential backoff retry logic with jitter
-- **Scalable**: Handles 1000+ products with <6s average latency
+### Core Features
+- ✅ **Browser Pool Management** - Auto-scaling browser instances with resource optimization
+- ✅ **Profile Rotation** - Realistic browser fingerprints with multiple rotation strategies
+- ✅ **Advanced Stealth** - Anti-detection techniques to avoid bot detection
+- ✅ **Proxy Rotation** - Smart proxy management with health checking
+- ✅ **Batch Processing** - Concurrent scraping with configurable concurrency
+- ✅ **Auto Retry** - Intelligent retry logic with exponential backoff
+- ✅ **Real-time Monitoring** - System statistics and health endpoints
+
+### Anti-Detection & CAPTCHA Avoidance
+- **Browser Warmup** - Visits homepage before scraping (human behavior)
+- **Human-like Scrolling** - Random scrolls with variable delays
+- **Mouse Movement** - Simulates cursor movements
+- **Random Timing** - Variable delays between actions
+- **Browser Fingerprint Rotation** - Unique profiles per browser
+- **Enhanced Stealth** - 10+ anti-detection techniques
+- **Korean Language Headers** - Optimized for Naver
+- **CAPTCHA Detection** - Early detection with auto-retry
+- **Proxy Rotation** - IP diversity with health checking
+
+**📖 See [CAPTCHA_QUICK_REFERENCE.md](CAPTCHA_QUICK_REFERENCE.md) for CAPTCHA avoidance guide**
 
 ## 📋 Requirements
 
-- Node.js 16+
-- Redis server
+- Node.js 18+
 - pnpm (or npm/yarn)
+- Optional: Proxy list for IP rotation
+- Optional: Browserless.io account for cloud browsers
 
 ## 🛠️ Installation
 
-### 1. Clone the repository
+### 1. Clone and Install
 
 ```bash
 git clone <your-repo-url>
 cd api-scrapping
-```
-
-### 2. Install dependencies
-
-```bash
 pnpm install
 ```
 
-### 3. Install Playwright browsers
+### 2. Install Playwright Browsers
 
 ```bash
-pnpm exec playwright install chromium
+npx playwright install chromium
 ```
 
-### 4. Set up Redis
+### 3. Configure Environment
 
-**Option A: Using Docker**
 ```bash
-docker run -d -p 6379:6379 redis:alpine
+cp .env.example .env
 ```
 
-**Option B: Local installation**
-- Windows: Download from https://github.com/microsoftarchive/redis/releases
-- Mac: `brew install redis && brew services start redis`
-- Linux: `sudo apt-get install redis-server && sudo service redis-server start`
-
-### 5. Configure environment variables
-
-Create a `.env` file in the root directory:
-
+Edit `.env`:
 ```env
-# Server Configuration
 PORT=3000
-NODE_ENV=production
+MAX_BROWSERS=3
+HEADLESS=true
+USE_PROXY=false
+```
 
-# Redis Configuration
-REDIS_URL=redis://localhost:6379
+### 4. (Optional) Setup Proxies
 
-# Proxy Configuration (Primary)
-PROXY_STRING=
+Create `data/proxies.txt`:
+```
+192.168.1.1:8080
+username:password@192.168.1.2:8080
+http://proxy.com:3128
+```
 
-# Additional Proxies (optional, comma-separated)
-# ADDITIONAL_PROXIES=proxy1.com:8080:user:pass,proxy2.com:8080:user:pass
-
-# Rate Limiting
-MAX_CONCURRENT=3
-MIN_TIME=500
-
-# Caching
-CACHE_TTL_SECONDS=3600
-
-# Browserless Configuration
-BROWSERLESS_ENABLED=true
-BROWSERLESS_URL=ws://localhost:3301
+Enable in `.env`:
+```env
+USE_PROXY=true
 ```
 
 ## 🏃 Running the API
@@ -89,7 +85,7 @@ BROWSERLESS_URL=ws://localhost:3301
 pnpm dev
 ```
 
-### Production Mode
+### Build and Run Production
 
 ```bash
 pnpm build
@@ -100,199 +96,73 @@ The API will be available at `http://localhost:3000`
 
 ## 📡 API Endpoints
 
-### 1. Scrape Product Data
+### 1. Health Check
 
-**Endpoint:** `GET /naver`
-
-**Query Parameters:**
-- `productUrl` (required): Full Naver SmartStore product URL
-
-**Example Request:**
 ```bash
-curl "http://localhost:3000/naver?productUrl=https://smartstore.naver.com/rainbows9030/products/11102379008"
+GET /health
 ```
 
-**Example Response:**
+Check API status and uptime.
+
+### 2. Scrape Single Product
+
+```bash
+GET /naver?productUrl={url}
+```
+
+**Example:**
+```bash
+curl "http://localhost:3000/naver?productUrl=https://smartstore.naver.com/ezbuy/products/5836562085"
+```
+
+**Response:**
 ```json
 {
-  "productDetail": {
-    "id": "11102379008",
-    "name": "Product Name",
-    "category": {...},
-    "channel": {...},
-    ...
-  },
-  "benefits": {
-    "benefitList": [...],
+  "success": true,
+  "data": {
+    "id": "5836562085",
+    "name": "남성 경량 패딩조끼",
+    "price": {
+      "salePrice": 25900,
+      "originalPrice": 35900,
+      "discountRate": 28,
+      "currency": "KRW"
+    },
+    "images": [...],
+    "brand": "이지바이",
+    "rating": 4.8,
+    "reviewCount": 1234,
     ...
   },
   "metadata": {
-    "scrapedAt": "2026-01-04T12:00:00.000Z",
-    "latency": 4523,
-    "cached": false
+    "duration": 3456,
+    "retries": 0
   }
 }
 ```
+### 4. System Statistics
 
-### 2. Health Check
+```bash
+GET /stats
+```
 
-**Endpoint:** `GET /health`
+Get browser pool and proxy statistics.
 
-**Example Response:**
+**Response:**
 ```json
 {
-  "status": "ok",
-  "uptime": 3600,
-  "timestamp": "2026-01-04T12:00:00.000Z",
-  "metrics": {
-    "totalRequests": 150,
-    "totalErrors": 3,
-    "errorRate": 2.0,
-    "averageLatency": 4234
-  }
+  "browserPool": {
+    "totalBrowsers": 3,
+    "activeBrowsers": 2,
+    "totalPages": 5
+  },
+  "proxyManager": {
+    "total": 10,
+    "healthy": 8,
+    "averageLatency": 450
+  },
+  "uptime": 3600.5
 }
-```
-
-## 🕵️ Anti-Detection Strategies
-
-### 1. Browser Fingerprinting
-- **Rotating User Agents**: 5+ realistic Chrome/Firefox/Safari user agents
-- **Random Viewports**: Common resolutions (1920x1080, 1366x768, etc.)
-- **Korean Locale**: `ko-KR` locale and `Asia/Seoul` timezone
-- **Realistic Headers**: Accept-Language, Referer, Origin headers
-
-### 2. Proxy Rotation
-- **Primary Proxy**: Korean residential proxies via Thordata
-- **Fallback Support**: Multiple proxy rotation for redundancy
-- **Health Checks**: Automatic proxy switching on failures
-
-### 3. Request Patterns
-- **Random Delays**: 1-3 seconds between requests with jitter
-- **Rate Limiting**: Max 60 requests per minute via Bottleneck
-- **Exponential Backoff**: Smart retry logic with increasing delays
-
-### 4. Stealth Techniques
-- **navigator.webdriver**: Overridden to `undefined`
-- **Chrome Runtime**: Mocked for authenticity
-- **Permissions API**: Realistic permission responses
-- **Network Idle**: Waits for all network requests to complete
-
-### 5. Caching Strategy
-- **Redis Cache**: 1-hour TTL to reduce repeat requests
-- **Cache Key**: Unique per product ID
-- **Cache Metadata**: Tracks if response is cached
-
-## 🔧 Configuration Options
-
-### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `PORT` | 3000 | Server port |
-| `REDIS_URL` | redis://localhost:6379 | Redis connection string |
-| `PROXY_STRING` | (provided) | Primary proxy (host:port:user:pass) |
-| `ADDITIONAL_PROXIES` | - | Comma-separated additional proxies |
-| `MAX_CONCURRENT` | 3 | Max concurrent requests |
-| `MIN_TIME` | 500 | Minimum time (ms) between requests |
-| `CACHE_TTL_SECONDS` | 3600 | Cache TTL in seconds | 
-| `BROWSERLESS_ENABLED`|true | Using browserless external |
-| `BROWSERLESS_URL` | ws://localhost:3301| Browserless connection string
-
-### Adjusting Rate Limits
-
-To handle higher throughput, adjust these variables:
-
-```env
-MAX_CONCURRENT=5          # More concurrent requests
-MIN_TIME=300              # Shorter delay between requests
-CACHE_TTL_SECONDS=7200    # Longer cache duration
-```
-
-⚠️ **Warning**: Higher values may increase detection risk.
-
-## 🏗️ Architecture
-
-```
-┌─────────────┐
-│   Client    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────────┐
-│   Express Server    │
-│  (server.ts)        │
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│  Fetcher Service    │
-│  - Rate Limiting    │
-│  - Caching          │
-│  - Retry Logic      │
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│  Playwright Scraper │
-│  - Anti-Detection   │
-│  - Proxy Rotation   │
-│  - API Interception │
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│  Naver SmartStore   │
-│  - Product API      │
-│  - Benefits API     │
-└─────────────────────┘
-```
-
-## 🐛 Troubleshooting
-
-### Redis Connection Error
-
-**Error**: `ECONNREFUSED 127.0.0.1:6379`
-
-**Solution**: Ensure Redis is running
-```bash
-# Check if Redis is running
-redis-cli ping
-# Should return: PONG
-
-# If not running, start it
-# Docker: docker start <container-id>
-# Mac: brew services start redis
-# Linux: sudo service redis-server start
-```
-
-### Playwright Browser Not Found
-
-**Error**: `browserType.launch: Executable doesn't exist`
-
-**Solution**: Install Playwright browsers
-```bash
-pnpm exec playwright install chromium
-```
-## 📝 Code Structure
-
-```
-api-scrapping/
-├── src/
-│   ├── server.ts              # Express server & endpoints
-│   ├── lib/
-│   │   ├── logger.ts          # Pino logger
-│   │   ├── parseURL.ts        # URL parser
-│   │   ├── fingerprints.ts    # Browser fingerprint generation
-│   │   └── proxyManager.ts    # Proxy rotation logic
-│   ├── services/
-│   │   ├── fetcherNew.ts      # Main fetcher with caching
-│   │   └── scraper.ts         # Playwright scraper
-│   └── types/
-│       └── index.ts           # TypeScript interfaces
-├── .env                       # Environment variables
-├── package.json
-├── tsconfig.json
-└── README.md
 ```
 
 

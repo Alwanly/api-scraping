@@ -14,6 +14,9 @@ export interface ProfileProxy extends RawProxy {
   successCount: number;
   failureCount: number;
   ipType: "residential" | "datacenter" | "unknown";
+  blockedWebsites: Map<string, Date>; // website -> blocked timestamp
+  lastHealthCheck: Date | null;
+  isHealthy: boolean;
 }
 
 export interface BrowserProfile {
@@ -32,8 +35,13 @@ export interface BrowserProfile {
 export interface ProxyPoolConfig {
   maxSize: number;
   minSize: number;
-  rotationStrategy: RotationStrategy  ;
+  rotationStrategy: RotationStrategy;
   validationInterval: number; // in milliseconds
+  healthCheckTimeout: number; // in milliseconds
+  healthCheckUrl: string; // URL to test proxy health
+  cooldownDuration: number; // in milliseconds
+  maxFailuresBeforeBan: number; // consecutive failures before marking as bad
+  recoveryInterval: number; // time before retrying a bad proxy (in milliseconds)
 }
 
 export enum ProxyFormat {
